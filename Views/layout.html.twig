@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+
+        <!-- FullPageJs -->
+        <link href="./lib/fullPageJs/jquery.fullpage.min.css" rel="stylesheet">
+
+        <!-- Bootstrap 3 -->
+        <link href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Perso -->
+        <link href="./css/design.css" rel="stylesheet">
+
+
+
+
+        <!-- Jqueyr -->
+        <script src="./vendor/components/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <!-- bootstrap 3 -->
+        <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- FullPageJs -->
+        <script src="./lib/fullPageJs/jquery.fullpage.min.js" type="text/javascript" charset="utf-8" ></script>
+
+    </head>
+    <body class="container-fluid">
+       <nav id="menu" class="navbar navbar-default navbar-fixed-top col-lg-8 col-lg-offset-2">
+          <ul class="nav navbar-nav nav-tabs nav-justified">
+            <li>
+                <a href="#parentWho">
+                   Qui somme-nous ? 
+                </a>
+            </li>
+            <li>
+                <a href="#parentHow">
+                   Comment nous rejoindre ? 
+                </a>
+            </li>
+          </ul>
+        </nav>
+        {% block content %}{% endblock %}
+    <div id="footer" class="row">
+        unicorns
+    </div>
+    </body>
+</html>

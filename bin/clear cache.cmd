@@ -1,0 +1,1 @@
+rmdir "..\var\cache" /s /q

@@ -1,8 +1,13 @@
 {
-    "name": "fabpot/silex-skeleton",
+    "name": "wndrr/silex-base-skeleton",
     "description": "A pre-configured skeleton for the Silex microframework",
-    "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "Hanzu",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "silex/silex": "~2.0",

@@ -1,0 +1,240 @@
+@import url("/shared/navbar.less");
+
+
+/*==============================
+=            Global            =
+==============================*/
+body
+{
+
+	background: url("/assets/img/tableTennis/pattern.png");
+	h1
+	{
+		font-size: 3em;
+		margin-bottom: 3%;
+	}
+
+	h1, h2
+	{
+		text-align: center;
+	}
+
+	/*====================================
+	=            Pictures row            =
+	====================================*/
+
+		/*----------  All devices  ----------*/
+		#picturesContainer
+		{
+			margin-bottom: 2%;
+
+			#carousel .carousel-inner img
+			 {
+			 	margin: auto;
+				width: auto;
+				height: 55vh;
+				max-height: 55vh;
+			}
+		}
+
+	/*=====  End of Pictures row  ======*/
+
+		/*============================================
+	=            Text and comment row            =
+	============================================*/
+	
+		/*----------  Small devices  ----------*/
+		@media only screen and (max-width : 992px) 
+	    {
+			#contactBlock
+			{
+				margin-top: 6%;
+			}
+	    }
+
+		/*----------  Large devices  ----------*/		
+	    @media only screen and (min-width : 992px) 
+	    {
+			#textAndContactContainer
+			{
+				display: flex;
+
+				#textBlock
+				{
+					min-height: 100%;
+					flex: 1;
+
+					& > div
+					{
+						position: absolute;
+						bottom: 1%;
+						left: 1%;
+						width: 98%;
+					}
+				} 
+
+				#contactFormSuccessResponse
+				{
+					padding: 1%;
+					padding-top: 3%;
+				}
+			}
+
+
+			&#relaxation #textAndContactContainer #textBlock > div
+			{
+				top: 1%;
+				bottom: auto;
+			}	
+
+			#textBlocksContainer
+			{
+				display: flex;
+				 div 
+				 {
+				 	flex: 1;
+				 	div
+					{
+						height: 100%;	
+						background-color: rgba(200, 230, 220, 0.8);
+						color: black;
+
+						padding: 1%;
+						text-align: center;
+						font-size: 1.3em;
+					}
+				}
+			}
+	    }
+
+		/*----------  All devices  ----------*/
+		#textAndContactContainer
+		{
+			#textBlock, .textBlock
+			{
+				& > div
+				{
+					background-color: rgba(200, 230, 220, 0.8);
+					color: black;
+
+					padding: 1%;
+					text-align: center;
+					font-size: 1.3em;
+
+				}
+			}
+			
+			form
+			{
+				fieldset > legend
+				{
+					text-align: center;
+					color: #B31400;
+				}
+			}
+
+		}
+	
+	/*=====  End of Text and comment row  ======*/
+
+	/*=========================================
+	=            Download file row            =
+	=========================================*/
+	
+		#downloadFile
+		{
+			color: black;
+
+			margin-top: 2%;
+
+			padding: 1%;
+			text-align: center;
+			font-size: 1.4em;
+		}
+	
+	/*=====  End of Download file row  ======*/
+}
+
+/*=====  End of Global  ======*/
+ 
+
+/*===================================================
+=            TextBloc background picture            =
+===================================================*/
+
+	.forSection(@section)
+	{
+		@url: "/assets/img/@{section}/textImage.jpg"
+	}
+
+	@media only screen and (min-width : 992px) 
+	{
+		#tableTennis #textAndContactContainer #textBlock
+		{
+			.forSection("tableTennis");
+			background: url(@url) no-repeat center center;
+			background-size: cover;				
+		}
+
+		#archery #textAndContactContainer #textBlock
+		{
+			.forSection("archery");
+			background: url(@url) no-repeat center center;
+			background-size: cover;				
+		}
+
+		#nordWalking #textAndContactContainer #textBlock
+		{
+			.forSection("nordWalking");
+			background: url(@url) no-repeat center center;
+			background-size: cover;				
+		}
+
+		#relaxation #textAndContactContainer #textBlock
+		{
+			.forSection("relaxation");
+			background: url(@url) no-repeat center center;
+			background-size: cover;				
+		}
+
+		#teens #textAndContactContainer
+		{
+			 #textBlock
+			 {
+	 			.forSection("/assets/img/teens/textImage.jpg");
+				background: url(@url) no-repeat center center;
+				background-size: cover;			
+			 }
+
+			 #textBlock2
+			 {
+	 			.forSection("/assets/img/teens/textImage2.jpg");
+				background: url(@url) no-repeat center center;
+				background-size: cover;			
+			 }			
+		}
+	}
+
+/*=====  End of TextBloc background picture  ======*/
+
+#textBlocksContainer
+{
+	 div 
+	 {
+	 	div
+		{
+		height: 100%;	
+			background-color: rgba(200, 230, 220, 0.8);
+			color: black;
+
+			padding: 1%;
+			text-align: center;
+			font-size: 1.3em;
+		}
+	}
+}
+
+#contactBlock
+{
+	text-align: center;
+}

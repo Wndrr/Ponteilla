@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Silex base architecture
+        </title>
+
+        <!--===========================
+        =            Fonts            =
+        ============================-->
+        
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
+        
+        <!--====  End of Fonts  ====-->
+
+        {% block lib_css %}
+
+            <!-- Bootstrap 3 -->
+            <link href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        {% endblock %}
+
+        {% block custom_css %}{% endblock %}
+
+
+
+        {% block lib_js %}
+
+            <!-- Jqueyr -->
+            <script src="/vendor/components/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+            <!-- Bootstrap 3 -->
+            <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body id="{% block bodyId %}base{% endblock %}" class="container-fluid">
+
+        {% block navbar %}{% endblock %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

@@ -16,5 +16,5 @@ Debug::enable();
 
 $app = require __DIR__.'/../src/app.php';
 require __DIR__.'/../config/dev.php';
-require __DIR__.'/../src/baseCOntroller.php';
+require __DIR__.'/../src/base.controller.php';
 $app->run();

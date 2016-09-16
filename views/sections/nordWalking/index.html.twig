@@ -1,0 +1,241 @@
+{% extends '/sections/_shared/global.layout.html.twig' %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="/assets/css/sections.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/_shared/navbar.partial.html.twig' %}
+        {% block navbar_logo %}
+        	<!-- Todo: Change the logo / remove if not needed -->
+			<img id="navbar_logo" src="/assets/img/nordWalking/logo.png" alt="Marche nordique logo">
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block bodyId %}nordWalking{% endblock %}
+
+{% block content %}
+	<h1>
+		Marche nordique
+	</h1>
+	<div class="row">
+		<div id="picturesContainer" class="col-md-8 col-md-offset-2">
+			<div id="carousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel" data-slide-to="1"></li>
+					<li data-target="#carousel" data-slide-to="2"></li>
+					<li data-target="#carousel" data-slide-to="3"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+					  <img src="/assets/img/nordWalking/carousel/1.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/2.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/3.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/4.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/5.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/6.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/7.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/8.jpg" alt="image introvable">
+					</div>
+
+					<div class="item">
+					  <img src="/assets/img/nordWalking/carousel/9.jpg" alt="image introvable">
+					</div>
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="textAndContactContainer">
+		<div class="col-md-6">
+			<div id="textBlock" class="col-md-12">
+				<div>
+					<h2>
+						UN SPORT SANTE CONVIVIAL ET DE PLEINE NATURE POUR RETROUVER OU ENTRETENIR VOTRE FORME !
+					</h2>
+					<p>
+						Retrouvez nous chaque samedi (hors fériés et vacances scolaires) de 10h à 12h pour diverses boucles autour de Ponteilla-Nyls (départ du boulodrome) ou covoiturage (lac de la Raho, forêt domaniale du Réart, canal de Canohès…).
+						<br />
+						Se munir de chaussures basses souples et légères à semelle antidérapante, eau, vêtement de pluie (possibilité de prêt de bâtons la première année) 
+						<br />
+					 	Cotisation annuelle 17 € + Adhésion au foyer rural 13 €/adulte
+				 	</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div id="contactBlock" class="col-md-12">
+				{% include '/sections/_shared/contactForm.partial.html.twig' %}
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div id="downloadFile" class="col-md-6">
+			Télécharger la <a href="/assets/download/globalFicheInscription.pdf">fiche individuelle d'inscription</a>
+		</div>
+		<div id="downloadFile" class="col-md-6">
+			<h2>
+				Ressources
+			</h2>
+			<div>
+				<a href="/assets/nordWalking/ressources/flyer_1.jpg" alt="flyer_1.jpg">
+					Flyer n°1
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/flyer_2.jpg" alt="flyer_2.jpg">
+					Flyer n°2
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/rules.docx" alt="rules.docx">
+					Règlement intérieur
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/size.jpg" alt="size.jpg">
+					Taille des batons
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/technic_1.docx" alt="technic_1.docx">
+					Technique n°1						
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/technic_2.docx" alt="technic_2.docx">
+					Technique n°2
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/technic_3.docx" alt="technic_3.docx">
+					Technique n°3						
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/trobada_2015.pdf" alt="trobada_2015.pdf">
+					Trobada 2015
+				</a>
+			</div>
+			<div>
+				<a href="/assets/nordWalking/ressources/trobada_2015.pdf" alt="/trobada_2015.pdf">
+					Trobada 2015
+				</a>
+			</div>
+		</div>
+	</div>		
+
+	<script>
+
+
+	var block = $('#sectionsCheckboxes');
+	var emailBlock = $('#emailBlock');
+	var emailInput = emailBlock.find('input');
+
+	var contactForm = $('#contactForm');
+
+	contactForm.on('submit', function(e) 
+	{ 
+		e.preventDefault();
+		var isValid = false;
+
+		var checkbox = block.find(':checkbox:checked');
+		if(checkbox.length == 0)
+		{
+			block.addClass('has-error');
+			isValid = false;
+		}	
+
+		else
+		{
+			$('#sectionsCheckboxes :checkbox:checked').removeClass('has-error');
+			isValid = true;
+		}			
+
+		if(!isValidEmailAddress(emailInput.val()))
+		{
+			emailBlock.addClass('has-error');
+			isValid = false;
+		}	
+
+		else
+		{
+			emailBlock.removeClass('has-error');
+			isValid = true;
+		}	
+
+
+		if(isValid)
+		{
+			sendForm();
+		}
+
+
+	});
+
+	function sendForm()
+	{
+		$.ajax(
+		{
+			type: "POST",
+			url: "{{path('tableTennis_contact')}}",
+			data: contactForm.serialize(),
+			beforeSend: function(xhr) 
+			{
+			},
+			success: function(data)
+			{
+				$('#textBlock').css('min-height', $(contactForm).css('height'));
+				$(contactForm).slideUp('fast', function()
+				{
+					$(contactForm).html(data);
+					$(contactForm).slideDown('fast')
+				});
+			}
+		});
+	}
+
+
+	function isValidEmailAddress(emailAddress) 
+	{
+	    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+	    return pattern.test(emailAddress);
+	};
+	</script>
+{% endblock %}

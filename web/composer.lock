@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5ada885a51b12121260a2179059d142a",
-    "content-hash": "ec4656ea9d297f3c5f619024c018ac9e",
+    "hash": "06e181828394cf6f7f945303bba85120",
+    "content-hash": "40bba4cfe390ee4548f1b8569cc0e871",
     "packages": [
         {
             "name": "components/jquery",
@@ -49,16 +49,16 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v3.3.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86"
+                "reference": "7e2741eb1074afc66bdf2fb5c2b65d476cf7f37e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0b9c4a4007c44201dce9a6cc1a38407005c26c86",
-                "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7e2741eb1074afc66bdf2fb5c2b65d476cf7f37e",
+                "reference": "7e2741eb1074afc66bdf2fb5c2b65d476cf7f37e",
                 "shasum": ""
             },
             "replace": {
@@ -96,13 +96,40 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-07-25 15:51:55"
+            "time": "2016-08-03 04:37:14"
+        },
+        {
+            "name": "wndrr/text-on-picture",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Wndrr/TextOnPicture.git",
+                "reference": "6dd9fb55551f23335351ae123f1422cf462224eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Wndrr/TextOnPicture/zipball/6dd9fb55551f23335351ae123f1422cf462224eb",
+                "reference": "6dd9fb55551f23335351ae123f1422cf462224eb",
+                "shasum": ""
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Hanzu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Makes it easy to display text on pictures, fading, adding effect some other cool things",
+            "time": "2016-09-11 17:25:45"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "wndrr/text-on-picture": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

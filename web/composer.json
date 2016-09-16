@@ -1,6 +1,9 @@
 {
+	"minimum-stability": "dev",
     "require": {
         "components/jquery": "^3.1",
-        "twbs/bootstrap": "^3.3"
+        "twbs/bootstrap": "^3.3",
+		"wndrr/text-on-picture": "dev-master"
     }
+
 }

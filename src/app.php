@@ -16,8 +16,6 @@ $app->register(new HttpFragmentServiceProvider());
 
 $app['twig'] = $app->extend('twig', function ($twig, $app) 
 {
-    // Custom globals/filters/tags
-
     return $twig;
 });
 

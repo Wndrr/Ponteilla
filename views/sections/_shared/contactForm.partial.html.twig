@@ -1,0 +1,103 @@
+<form id="contactForm" class="form-horizontal">
+	<fieldset>
+		<!-- Form Name -->
+		<legend>
+			Contact
+		</legend>
+
+		<!-- Text input-->
+		<div class="form-group">
+		    <label class="col-md-2 control-label" for="lastName">Nom</label>    
+		    <div class="col-md-8">
+		    	<input id="lastName" name="lastName" placeholder="" class="form-control input-md" required="" type="text">						        
+		    </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		    <label class="col-md-2 control-label" for="firstName">Prénom</label>    
+		    <div class="col-md-8">
+		    	<input id="firstName" name="firstName" placeholder="" class="form-control input-md" required="" type="text">						        
+		    </div>
+		</div>
+
+		<!-- Text input-->
+		<div id="emailBlock" class="form-group">
+		    <label class="col-md-2 control-label" for="email">E-mail</label>    
+		    <div class="col-md-8">
+		    	<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="text">						        
+		    </div>
+		</div>
+
+		<!-- Multiple Checkboxes -->
+		<div id="sectionsCheckboxes" class="form-group">
+		    <label class="col-md-2 control-label" for="section">Activités</label>
+		    <div class="col-md-8">
+		    	<div class="col-md-5 col-md-offset-1">
+				    <div class="checkbox">
+			        <label for="section-0">
+			            <input name="section[]" id="section-0" value="nordWalking" type="checkbox">
+			            Marche nordique
+			        </label>
+					</div>
+				    <div class="checkbox">
+				        <label for="section-1">
+				            <input name="section[]" id="section-1" value="hiking" type="checkbox">
+				            Randonnée pédestre
+				        </label>
+					</div>
+		    		 <div class="checkbox">
+				        <label for="section-6">
+				            <input name="section[]" id="section-6" value="relaxation" type="checkbox">
+				            Relaxation HappyRelax
+				        </label>
+					</div>
+		    	</div>
+		    	<div class="col-md-5 col-md-offset-1">
+		    		 <div class="checkbox">
+				        <label for="section-2">
+				            <input name="section[]" id="section-2" value="tableTennis" type="checkbox">
+				            Tennis de table
+				        </label>
+					</div>
+				    <div class="checkbox">
+				        <label for="section-3">
+				            <input name="section[]" id="section-3" value="archery" type="checkbox">
+				            Tir à l'arc
+				        </label>
+					</div>
+				    <div class="checkbox">
+				        <label for="section-4">
+				            <input name="section[]" id="section-4" value="teens" type="checkbox">
+				            Point ados
+				        </label>
+					</div>
+		    	</div>
+		    	<div class="col-md-5 col-md-offset-4">
+		    		 <div class="checkbox">
+				        <label for="section-5">
+				            <input name="section[]" id="section-5" value="other" type="checkbox">
+				            Autre
+				        </label>
+					</div>
+		    	</div>
+		    </div>
+			<div class="help-block with-errors col-md-8 col-md-offset-2">
+				Au moins une activité doit être sélectionnée
+			</div>
+		</div>
+
+		<!-- Textarea -->
+		<div class="form-group">
+		    <label class="col-md-2 control-label" for="message">Message</label>
+		    <div class="col-md-8">                                         
+		        <textarea class="form-control" id="message" name="message"></textarea>
+		    </div>
+		</div>
+
+		<!-- Button -->
+		<div class="form-group">
+		    <button id="send" name="send" class="btn btn-danger col-xs-2 col-xs-offset-5">Envoyer</button>
+		</div>
+	</fieldset>
+</form>

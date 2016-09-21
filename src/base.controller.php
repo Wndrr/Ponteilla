@@ -39,3 +39,4 @@ require_once('controllers/archery.controller.php');
 require_once('controllers/nordWalking.controller.php');
 require_once('controllers/relaxation.controller.php');
 require_once('controllers/teens.controller.php');
+require_once('controllers/ajax.controller.php');

@@ -6,7 +6,6 @@
 ==============================*/
 body
 {
-
 	background: url("/assets/img/pattern.png");
 	h1
 	{
@@ -23,7 +22,6 @@ body
 	=            Pictures row            =
 	====================================*/
 
-		/*----------  All devices  ----------*/
 		#picturesContainer
 		{
 			margin-bottom: 2%;
@@ -39,7 +37,7 @@ body
 
 	/*=====  End of Pictures row  ======*/
 
-		/*============================================
+	/*============================================
 	=            Text and comment row            =
 	============================================*/
 	
@@ -107,7 +105,6 @@ body
 			}
 	    }
 
-		/*----------  All devices  ----------*/
 		#textAndContactContainer
 		{
 			#textBlock, .textBlock
@@ -167,6 +164,7 @@ body
 		@url: "/assets/img/@{section}/textImage.jpg"
 	}
 
+	/*----------  Large devices  ----------*/
 	@media only screen and (min-width : 992px) 
 	{
 
@@ -204,24 +202,33 @@ body
 
 /*=====  End of TextBloc background picture  ======*/
 
-#textBlocksContainer
-{
-	 div 
-	 {
-	 	div
-		{
-		height: 100%;	
-			background-color: rgba(200, 230, 220, 0.8);
-			color: black;
+/*==================================
+=            Point ados            =
+==================================*/
 
-			padding: 1%;
+	#teens 
+	{
+		#textBlocksContainer
+		{
+			 div 
+			 {
+			 	div
+				{
+					height: 100%;	
+					background-color: rgba(200, 230, 220, 0.8);
+					color: black;
+
+					padding: 1%;
+					text-align: center;
+					font-size: 1.3em;
+				}
+			}
+		}
+
+		#contactBlock
+		{
 			text-align: center;
-			font-size: 1.3em;
 		}
 	}
-}
 
-#contactBlock
-{
-	text-align: center;
-}
+/*=====  End of Point ados  ======*/

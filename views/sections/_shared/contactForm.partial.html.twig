@@ -102,6 +102,10 @@
 	</fieldset>
 </form>
 
+<div style="display:none;">
+	<img id="contactLoader" src="/bower_components/SVG-Loaders/svg-loaders/tail-spin.svg">
+</div>
+
 <script>
 
 	/*====================================
@@ -154,27 +158,34 @@
 				sendForm();
 			
 		});
+		
 
 		//Sends form using AJAX
 		function sendForm()
 		{
-			$.ajax(
+			$('#textBlock').css('min-height', $(contactForm).css('height'));
+			$(contactForm).slideUp('fast', function()
 			{
-				type: "POST",
-				url: "{{path('ajax_contact')}}",
-				data: contactForm.serialize(),
-				beforeSend: function(xhr) 
+				var data = contactForm.serialize();
+				$(contactForm).html($('#contactLoader'));
+
+				$(contactForm).slideDown('fast', function()
 				{
-				},
-				success: function(data)
-				{
-					$('#textBlock').css('min-height', $(contactForm).css('height'));
-					$(contactForm).slideUp('fast', function()
+					$.ajax(
 					{
-						$(contactForm).html(data);
-						$(contactForm).slideDown('fast')
+						type: "POST",
+						url: "{{path('ajax_contact')}}",
+						data: data,
+						success: function(data)
+						{
+							$(contactForm).slideUp('fast', function()
+							{
+								$(contactForm).html(data);
+								$(contactForm).slideDown('fast')
+							});
+						}
 					});
-				}
+				});
 			});
 		}
 

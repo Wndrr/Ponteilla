@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "TextOnPicture": "Wndrr/TextOnPicture"
+    "TextOnPicture": "Wndrr/TextOnPicture",
+    "SVG-Loaders": "svg-loaders#^1.0.2"
   }
 }

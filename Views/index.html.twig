@@ -4,19 +4,25 @@
         <title>
             Foyer rural de Ponteilla-Nyls
         </title>
+
+
+
+
         <!-- Bootstrap 3 -->
-        <link href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- textOnPicture -->
         <link href="/vendor/wndrr/text-on-picture/css/design.css" rel="stylesheet">
+        <!-- textOnPicture -->
+        <link href="/bower_components/TextOnPicture/dist/TextOnPicture.component.css" rel="stylesheet">
         <!-- Custom -->
         <link href="/assets/css/index.css" rel="stylesheet">
 
         <!-- Jqueyr -->
-        <script src="/vendor/components/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <!-- Bootstrap 3 -->
-        <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
         <!-- textOnPicture -->
-        <script src="/vendor/wndrr/text-on-picture/js/plugin.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/bower_components/TextOnPicture/dist/TextOnPicture.component.js" type="text/javascript" charset="utf-8"></script>
         
     </head>
     <body id="index">   
@@ -109,7 +115,7 @@
             
             $(document).ready(function($) 
             {
-                $(".activityBlock").TextOnPicture();        
+                new TextOnPicture(".activityBlock");        
             });
         </script>
     </body>

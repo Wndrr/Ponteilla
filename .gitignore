@@ -1,4 +1,4 @@
 /vendor/
-/web/vendor/
+/web/bower_components/
 /logs/
 /cache/

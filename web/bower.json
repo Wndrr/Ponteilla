@@ -1,0 +1,15 @@
+{
+  "name": "Ponteilla",
+  "authors": [
+    "Wndrr"
+  ],
+  "description": "Site pour le foyer rural de Ponteilla-Nyls",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "TextOnPicture": "Wndrr/TextOnPicture"
+  }
+}

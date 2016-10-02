@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+
 /*==============================
 =            Routes            =
 ==============================*/
@@ -47,5 +48,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
     require_once('controllers/relaxation.controller.php');
     require_once('controllers/teens.controller.php');
     require_once('controllers/ajax.controller.php');
+    require_once('controllers/hiking.controller.php');
 
 /*=====  End of Include sub-controllers  ======*/

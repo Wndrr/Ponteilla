@@ -88,6 +88,22 @@ h4 {
 #loginRegisterBox.flip-container .back {
   transform: rotateY(180deg);
 }
-ul.dropdown-menu {
+li.dropdown a > span.dropdownArrow {
+  transform: rotateZ(0deg);
+  transition: 0.5s ease-out;
+}
+li.dropdown.open a > span.dropdownArrow {
+  transform: rotateZ(180deg);
+}
+li.dropdown ul.dropdown-menu {
   width: 100%;
+}
+.dropdown-menu.fade {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+.open > .dropdown-menu.fade {
+  pointer-events: auto;
+  opacity: 1;
 }

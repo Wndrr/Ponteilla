@@ -88,3 +88,6 @@ h4 {
 #loginRegisterBox.flip-container .back {
   transform: rotateY(180deg);
 }
+ul.dropdown-menu {
+  width: 100%;
+}

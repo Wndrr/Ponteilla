@@ -10,6 +10,8 @@
 		{				
 			color: #B31400!important;
 			font-size: 1vw;
+			background-color: #F8F8F8;
+			z-index: 10;
 		}
 
 		/*----------  Logo  ----------*/
@@ -29,3 +31,96 @@
 	}
 
 /*=====  End of Menu  ======*/
+
+a#showLoginRegisterBox
+{
+	cursor: pointer;
+}
+
+h4
+{
+	text-align: center;
+}
+
+#loginRegisterBox
+{
+	@boxHeight: 200px;
+	@boxWidth: 500px;
+	width: @boxWidth;
+
+	position: absolute;
+	top: -@boxHeight - 1;
+	left: -(@boxWidth / 5);
+	transition: top 0.5s ease-in-out, z-index 0.5s 0.5s linear;
+	z-index: 0;
+
+	.flipPhrase
+	{
+		margin-top: 4%;
+		margin-bottom: 2%;
+	}
+
+	&.in
+	{ 
+		top: 52px; 
+		z-index: 11;
+	}
+
+	/* entire container, keeps perspective */
+	&.flip-container 
+	{
+		perspective: 600px;
+		&, .front, .back 
+		{
+			min-height: @boxHeight;
+		}
+
+		.flipper 
+		{
+			transition: 0.6s;
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+
+		&.flipped .flipper 
+		{
+			transform: rotateY(180deg);
+		}
+
+		/* hide back of pane during swap */
+		.front, .back  
+		{
+			backface-visibility: hidden;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			input
+			{
+				margin-bottom: 2%;
+			}
+
+			background-image: url('/assets/img/hiking/loginPattern.png');
+			background-size: cover;
+			background-color: lightgrey;
+			background-blend-mode: multiply;
+		}
+
+		/* front pane, placed above back */
+		.front 
+		{
+			z-index: 2;
+			/* for firefox 31 */
+			transform: rotateY(0deg);
+			overflow: hidden;
+		}
+
+		/* back, initially hidden pane */
+		.back 
+		{
+			transform: rotateY(180deg);
+		}
+	}
+}

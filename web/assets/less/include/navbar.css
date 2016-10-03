@@ -8,6 +8,8 @@
 .navbar ul li a {
   color: #B31400!important;
   font-size: 1vw;
+  background-color: #F8F8F8;
+  z-index: 10;
 }
 .navbar .navbar-brand {
   max-height: 50px;
@@ -18,4 +20,71 @@
 .navbar .navbar-brand img {
   max-height: 100%;
   max-width: 100%;
+}
+/*=====  End of Menu  ======*/
+a#showLoginRegisterBox {
+  cursor: pointer;
+}
+h4 {
+  text-align: center;
+}
+#loginRegisterBox {
+  width: 500px;
+  position: absolute;
+  top: -201px;
+  left: -100px;
+  transition: top 0.5s ease-in-out, z-index 0.5s 0.5s linear;
+  z-index: 0;
+  /* entire container, keeps perspective */
+}
+#loginRegisterBox .flipPhrase {
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+#loginRegisterBox.in {
+  top: 52px;
+  z-index: 11;
+}
+#loginRegisterBox.flip-container {
+  perspective: 600px;
+  /* hide back of pane during swap */
+  /* front pane, placed above back */
+  /* back, initially hidden pane */
+}
+#loginRegisterBox.flip-container,
+#loginRegisterBox.flip-container .front,
+#loginRegisterBox.flip-container .back {
+  min-height: 200px;
+}
+#loginRegisterBox.flip-container .flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+#loginRegisterBox.flip-container.flipped .flipper {
+  transform: rotateY(180deg);
+}
+#loginRegisterBox.flip-container .front,
+#loginRegisterBox.flip-container .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('/assets/img/hiking/loginPattern.png');
+  background-size: cover;
+  background-color: lightgrey;
+  background-blend-mode: multiply;
+}
+#loginRegisterBox.flip-container .front input,
+#loginRegisterBox.flip-container .back input {
+  margin-bottom: 2%;
+}
+#loginRegisterBox.flip-container .front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+  overflow: hidden;
+}
+#loginRegisterBox.flip-container .back {
+  transform: rotateY(180deg);
 }

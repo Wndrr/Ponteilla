@@ -39,6 +39,52 @@
 					</a>
 				</li>
 				<li>
+					<a id="showLoginRegisterBox">
+						<i class="fa fa-sign-in" aria-hidden="true"></i> Compte
+					</a>					
+					<div id="loginRegisterBox" class="flip-container col-lg-12">
+						<div class="flipper col-lg-12">
+							<div class="front col-lg-12">
+								<form id="loginForm">
+									<h4>
+										Connexion
+									</h4>
+									<div class="input-group col-lg-12">										
+										<input placeholder="Nom de famille ou Email" type="text" class="col-lg-12">
+									</div>
+									<div class="input-group col-lg-12">										
+										<input placeholder="Mot de passe" type="password" class="col-lg-12">
+									</div>
+									<button class="btn btn-success col-lg-12">
+										Se connecter
+									</button>
+								</form>
+								<button id="showRegister" class="flipPhrase btn btn-default col-lg-12">Pas de compte ? Je m'inscris !</button>
+							</div>
+							<div class="back col-lg-12">
+								<form id="registerForm">
+									<h4>
+										Inscription
+									</h4>
+									<div class="input-group col-lg-12">										
+										<input placeholder="Nom de famille" type="text" class="col-lg-12">
+									</div>
+									<div class="input-group col-lg-12">										
+										<input placeholder="Email" type="email" class="col-lg-12">
+									</div>
+									<div class="input-group col-lg-12">										
+										<input placeholder="Mot de passe" type="password" class="col-lg-12">
+									</div>
+									<button class="btn btn-success col-lg-12">
+										S'inscrire
+									</button>
+								</form>
+								<button id="showLogin" class="flipPhrase btn btn-default col-lg-12">Déjà un compte ? Je me connecte !</button>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
 					<a href="{{path('base_index')}}">
 						<i class="fa fa-arrow-up" aria-hidden="true"></i> Retour aux sections
 					</a>
@@ -47,3 +93,30 @@
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
+
+<script>
+	$('#showRegister').click(function() 
+	{
+		$('#loginRegisterBox').addClass('flipped');
+	});
+
+	$('#showLogin').click(function() 
+	{
+		$('#loginRegisterBox').removeClass('flipped');
+	});
+
+	$('#showLoginRegisterBox').click(function() 
+	{
+		$('#loginRegisterBox').toggleClass('in');
+	});
+	
+	$('#loginForm').submit(function(e) 
+	{
+			e.preventDefault();
+	});
+	
+	$('#registerForm').submit(function(e) 
+	{
+			e.preventDefault();
+	});
+</script>

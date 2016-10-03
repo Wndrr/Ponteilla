@@ -402,66 +402,66 @@ body#hiking
 
 		}
 
+		/* entire container, keeps perspective */
+		.flip-container 
+		{
+			perspective: 1000px;
+
+			&, .front, .back 
+			{
+				height: 15vh;
+			}
+
+			.flipper 
+			{
+				transition: 0.6s;
+				transform-style: preserve-3d;
+
+				position: relative;
+			}
+
+			&:hover .flipper, &.hover .flipper 
+			{
+				transform: rotateY(-180deg);
+			}
+
+			/* hide back of pane during swap */
+			.front, .back 
+			{
+				backface-visibility: hidden;
+
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			/* front pane, placed above back */
+			.front 
+			{
+				z-index: 2;
+				/* for firefox 31 */
+				transform: rotateY(0deg);
+				background-color: grey;
+				background: url('/assets/img/hiking/eventPattern.png') no-repeat;
+				background-size: cover;
+				overflow: hidden;
+			}
+
+			/* back, initially hidden pane */
+			.back 
+			{
+				transform: rotateY(-180deg);
+				// background-image: url('/assets/img/hiking/eventPattern.png');
+				background-color: rgba(90, 90, 90, 0.9);
+				background-size: cover;
+
+			}
+		}
 	}
 }
 
 
 
-/* entire container, keeps perspective */
-.flip-container 
-{
-	perspective: 1000px;
-
-	&, .front, .back 
-	{
-		height: 15vh;
-	}
-
-	.flipper 
-	{
-		transition: 0.6s;
-		transform-style: preserve-3d;
-
-		position: relative;
-	}
-
-	&:hover .flipper, &.hover .flipper 
-	{
-		transform: rotateY(-180deg);
-	}
-
-	/* hide back of pane during swap */
-	.front, .back 
-	{
-		backface-visibility: hidden;
-
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-
-	/* front pane, placed above back */
-	.front 
-	{
-		z-index: 2;
-		/* for firefox 31 */
-		transform: rotateY(0deg);
-		background-color: grey;
-		background: url('/assets/img/hiking/eventPattern.png') no-repeat;
-		background-size: cover;
-		overflow: hidden;
-	}
-
-	/* back, initially hidden pane */
-	.back 
-	{
-		transform: rotateY(-180deg);
-		// background-image: url('/assets/img/hiking/eventPattern.png');
-		background-color: rgba(90, 90, 90, 0.9);
-		background-size: cover;
-
-	}
-}
 
 #footerNavbar 
 {

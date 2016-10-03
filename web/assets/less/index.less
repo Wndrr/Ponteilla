@@ -24,7 +24,11 @@ body
 
 		div.bodyContainer
 		{
+			@radiusSize: 60px;
 			text-align: center;
+			margin-bottom: 5px;
+
+
 			a.activityBlock
 			{
 				div
@@ -32,6 +36,9 @@ body
 					background-color: rgba(88, 230, 255, 0.6);
 					color: black;
 					width: 100%;
+
+					border-top-left-radius: @radiusSize;
+					border-top-right-radius: @radiusSize;
 
 					h2
 					{
@@ -41,6 +48,7 @@ body
 
 				img
 				{
+					border-radius: @radiusSize;
 					height: 30vh;
 					margin: auto;
 				}

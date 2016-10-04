@@ -62,7 +62,7 @@
 			<img class="img img-responsive" src="/assets/img/hiking/centerLogo.png" alt="logo du site">
 		</div>
 		<div id="right" class="container col-lg-5">
-			<div id="joinAndContactBlock">
+			<div id="joinAndContactBlock" class="col-lg-12">
 				<h2>
 					Adhésion
 				</h2>
@@ -92,8 +92,61 @@
 				06.50.45.05.64
 				<br />
 				<br />
-				<button id="contactFormBtn" class="btn btn-info col-xs-12">Formulaire de contact</button>
+				<button class="contactFormBtn btn btn-info col-xs-12">
+					Formulaire de contact
+				</button>				
 			</div>
+			<div id="contactPanel">
+					<button class="contactFormBtn btn btn-info col-xs-12">
+						Cacher le formulaire de contact
+					</button>
+					<form id="contactForm" class="">
+							<!-- Text input-->
+							<div class="form-group">
+								<div class="row">
+									<div class="col-lg-6">
+									    <label class="ccontrol-label" for="lastName">
+								    		Nom
+										</label>  
+									</div>
+									<div class="col-lg-6">
+									    <label class="ccontrol-label" for="firstName">
+								    		Prénom
+										</label>  
+									</div>	
+								</div>  
+								<div class="row">
+									<div class="col-lg-6">
+										<input id="lastName" name="lastName" placeholder="" class="form-control input-md" required="" type="text">	
+									</div>
+									<div class="col-lg-6">
+										<input id="firstName" name="firstName" placeholder="" class="form-control input-md" required="" type="text">
+									</div>	
+								</div>  
+							</div>
+
+							<!-- Text input-->
+							<div id="emailBlock" class="form-group">
+							    <label class="control-label" for="email">
+						    		E-mail
+								</label>    
+						    	<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="text">				
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+							    <label class="control-label" for="message">
+							    	Message
+								</label>
+						        <textarea class="form-control" id="message" name="message"></textarea>
+							</div>
+
+							<!-- Button -->
+							<div class="form-group">
+							    <button id="send" name="send" class="btn btn-danger col-xs-2 col-xs-offset-5">Envoyer</button>
+							</div>
+					</form>
+				</div>
 		</div>
 	</div>
 </div>
@@ -264,12 +317,17 @@
 <script>
 	jQuery(document).ready(function($) 
 	{
-		$('#currentAnnouncement').css('max-height', parseInt($('#right').css('height')) - parseInt($('#contactFormBtn').css('height')) + "px");
+		$('#currentAnnouncement').css('max-height', parseInt($('#joinAndContactBlock').css('height')) - parseInt($('.contactFormBtn').css('height')) + "px");
 		if($('#currentAnnouncement')[0].scrollHeight >  $('#currentAnnouncement').innerHeight())
 		{
 			$('#showCompleteAnnoucement').show();
 		}
 
 	});
+
+	$('.contactFormBtn').click(function()
+		{
+			$('#contactPanel').toggleClass('in');
+		});
 </script>
 {% endblock %}

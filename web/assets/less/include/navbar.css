@@ -7,7 +7,7 @@
 }
 .navbar ul li a {
   color: #B31400!important;
-  font-size: 1vw;
+  font-size: 120%;
   background-color: #F8F8F8;
   z-index: 10;
 }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Foyer rural de Ponteilla-Nyls
+        </title>
+
+
+
+
+        <!-- Bootstrap 3 -->
+        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- textOnPicture -->
+        <link href="/vendor/wndrr/text-on-picture/css/design.css" rel="stylesheet">
+        <!-- textOnPicture -->
+        <link href="/bower_components/TextOnPicture/dist/TextOnPicture.component.css" rel="stylesheet">
+        <!-- Custom -->
+        <link href="/assets/css/index.css" rel="stylesheet">
+
+        <!-- Jqueyr -->
+        <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <!-- Bootstrap 3 -->
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        <!-- textOnPicture -->
+        <script src="/bower_components/TextOnPicture/dist/TextOnPicture.component.js" type="text/javascript" charset="utf-8"></script>
+        
+    </head>
+    <body id="index">   
+        <div class="headContainer">
+            <h1>
+                Foyer rural de Ponteilla-Nyls
+            </h1>
+        </div>
+        <div id="lg_mg_body" class=""> 
+            <div class="bodyContainer">
+                <a class="activityBlock" href="{{ path('hiking_index') }}">
+                    <img src="/assets/img/indexThumbnails/hiking.jpg" alt="Randonnée pedestre (image introuvable)">
+                    <div>
+                        <h2>
+                            Randonnée pédestre
+                        </h2>
+                    </div>
+                </a>
+                <a class="activityBlock" href="{{ path('nordWalking_index') }}">
+                    <img src="/assets/img/indexThumbnails/nordWalking.jpg" alt="Marche nordique (image introuvable)">
+                    <div>
+                        <h2>
+                            Marche nordique
+                        </h2>
+                    </div>
+                </a>
+            </div>
+            <div class="bodyContainer">
+                <a class="activityBlock" href="{{ path('archery_index') }}">
+                    <img src="/assets/img/indexThumbnails/archery.jpg" alt="Randonnée pedestre (image introuvable)">
+                    <div>
+                        <h2>
+                            Tir à l'arc
+                        </h2>
+                    </div>
+                </a>
+                <a class="activityBlock" href="{{path('tableTennis_index')}}">
+                    <img src="/assets/img/indexThumbnails/tableTennis.jpg" alt="Tennis de table (image introuvable)">
+                    <div>
+                        <h2>
+                            Tennis de table
+                        </h2>
+                    </div>
+                </a>
+            </div>
+            <div class="bodyContainer">
+                <a class="activityBlock" href="{{ path('relaxation_index') }}">
+                    <img src="/assets/img/indexThumbnails/happyRelax.jpg" alt="Relaxation et bien être (image introuvable)">
+                    <div>
+                        <h2>
+                            Relaxation HappyRelax
+                        </h2>
+                    </div>
+                </a>
+                <a class="activityBlock" href="{{ path('teens_index') }}">
+                    <img src="/assets/img/indexThumbnails/foyer.jpg" alt="Relaxation et bien être (image introuvable)">
+                    <div>
+                        <h2>
+                            Point ados / Animations
+                        </h2>
+                    </div>
+                </a>
+            </div>
+        </div>  
+
+        <!-- Modal -->
+        <div class="modal fade" id="notAccessible" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Section en construction
+                </h4>
+              </div>
+              <div class="modal-body">
+                Diz section aint done yet, come back later u lil' unicorn <3
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    Je suis un bouton
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript">
+            
+            $(document).ready(function($) 
+            {
+                new TextOnPicture(".activityBlock");        
+            });
+        </script>
+    </body>
+</html>
+ 

@@ -1,5 +1,9 @@
-{% extends "layout.html.twig" %}
-
+{% extends '/errors/_shared/error.layout.html.twig' %}
+{% block errorCodeRange %}
+    range5xx
+{% endblock %}
 {% block content %}
-    Internal server error.
+	<h1>
+		Erreur 404 - Erreur interne
+	</h1>
 {% endblock %}

@@ -27,6 +27,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="container-fluid">
-        {% block content %}{% endblock %}
+        <div class="error panel {% block errorCodeRange %}{% endblock %} col-lg-12">    
+            <div class="row">
+                <a href="{{ path("hiking_index") }}" class="btn btn-default col-lg-3 col-lg-offset-2">
+                    Retour à l'accueil
+                </a>
+                <a href="{{lastPage}}" class="btn btn-default col-lg-3 col-lg-offset-2">
+                    Retour à la page précédente
+                </a>
+            </div>
+            <br>
+            {% block content %}{% endblock %}
+        </div>
     </body>
 </html>

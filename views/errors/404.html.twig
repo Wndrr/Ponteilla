@@ -1,17 +1,9 @@
 {% extends '/errors/_shared/error.layout.html.twig' %}
+{% block errorCodeRange %}
+    range4xx
+{% endblock %}
 {% block content %}
-<div class="error panel range4xx col-lg-12">	
-	<div class="row">
-		<a href="{{ path("hiking_index") }}" class="btn btn-default col-lg-3 col-lg-offset-2">
-			Retour à l'accueil
-		</a>
-		<a href="{{lastPage}}" class="btn btn-default col-lg-3 col-lg-offset-2">
-			Retour à la page précédente
-		</a>
-	</div>
-	<br>
 	<h1>
 		Erreur 404 - Page introuvable
 	</h1>
-</div>
 {% endblock %}

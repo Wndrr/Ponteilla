@@ -36,8 +36,8 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
             'driver'    => 'pdo_mysql',
             'host'      => 'localhost',
             'dbname'    => 'ponteilla',
-            'user'      => 'root',
-            'password'  => 'root',
+            'user'      => 'ponteilla',
+            'password'  => 'ponteilla',
             'charset'   => 'utf8',
         )
     ),

@@ -55,4 +55,16 @@ $app->register(new DoctrineOrmServiceProvider, array(
         ),
     ),
 ));
+
+$app->register(new Silex\Provider\SessionServiceProvider(), array());
+$app->register(new Silex\Provider\SecurityServiceProvider(), array());
+$app['security.firewalls'] = array(
+    'admin' => array(
+        'pattern' => '^/hiking/admin',
+        'form' => array('login_path' => '/login', 'check_path' => '/admin/login_check'),
+        'users' => array(
+            'admin' => array('ROLE_ADMIN', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a'),
+        ),
+    ),
+);
 return $app;

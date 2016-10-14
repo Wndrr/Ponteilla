@@ -33,6 +33,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
             return $app['twig']->render('errors/500.html.twig', $rtrnParams);
     });
 
+$app->get('/test', function () use ($app) {
+    $post = $app['db']->fetchAll("SELECT * FROM test")[0];
+
+    return  "<h1>{$post['id']}</h1>".
+            "<p>{$post['tada']}</p>";
+});
 
 /*=====  End of Routes  ======*/
 

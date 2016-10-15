@@ -32,7 +32,7 @@ $app->register(new PhpMailerServiceProvider(), array(
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'dbs.options' => array (
-        'localhost' => array(
+        'default' => array(
             'driver'    => 'pdo_mysql',
             'host'      => 'localhost',
             'dbname'    => 'ponteilla',
@@ -50,6 +50,7 @@ $app->register(new DoctrineOrmServiceProvider, array(
             // Using actual filesystem paths
             array(
                 'type' => 'annotation',
+                'namespace' => 'Entity',
                 'path' => __DIR__.'/src/entity',
             ),
         ),

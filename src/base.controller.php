@@ -48,6 +48,22 @@ $app->get('/admin', function(Request $request) use ($app) {
     return $app['twig']->render('logout.html');
 });
 
+
+$app->get('/test', function(Request $request) use ($app)
+{
+  
+    $em = $app['orm.em'];
+
+    $u = new Entity\User();
+    $u->setUsername("uname");
+    $u->setPassword("pssw");
+    $u->setEmail("pssw");
+
+    $em->persist($u);
+    $em->flush();
+    return 'test';
+});
+
 /*=====  End of Routes  ======*/
 
 /*===============================================

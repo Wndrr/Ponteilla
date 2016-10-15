@@ -59,8 +59,8 @@ $app->get('/test', function(Request $request) use ($app)
     $u->setPassword("pssw");
     $u->setEmail("pssw");
 
-    $em->persist($u);
-    $em->flush();
+    $test = $em->getRepository('Entity\User')->findBy(array('username' => 'uname'));
+    var_dump($test);
     return 'test';
 });
 

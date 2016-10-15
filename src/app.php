@@ -56,16 +56,29 @@ $app->register(new DoctrineOrmServiceProvider, array(
     ),
 ));
 
+$app->register(new Silex\Provider\MonologServiceProvider(), array());
+
+// initialize the logger
+$app['log'] = function($app) {
+   return new Monolog\Logger('mylog');
+};
+$app['log']->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/../logs/test.log', Monolog\Logger::INFO));
+
 $app->register(new Silex\Provider\SessionServiceProvider(), array());
 $app->register(new Silex\Provider\SecurityServiceProvider(), array());
-$app['security.firewalls'] = array(
-    'admin' => array(
+$app['security.firewalls'] = array
+(
+    'admin' => array
+    (
         'pattern' => '^/admin',
         'form' => array('login_path' => '/login', 'check_path' => '/admin/login_check'),
         'logout' => array('logout_path' => '/admin/logout', 'invalidate_session' => true),
-        'users' => array(
-            'admin' => array('ROLE_ADMIN', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a'),
-        ),
-    ),
-);
+        'users' => function() use($app) 
+        { 
+            return new Entity\UserProvider($app); 
+        }
+    )
+);$app['security.default_encoder'] = function ($app) {
+    return new \Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder();
+};
 return $app;

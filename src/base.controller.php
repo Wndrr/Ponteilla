@@ -33,13 +33,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
             return $app['twig']->render('errors/500.html.twig', $rtrnParams);
     });
 
-$app->get('/test', function () use ($app) {
-    $post = $app['db']->fetchAll("SELECT * FROM test")[0];
-
-    return  "<h1>{$post['id']}</h1>".
-            "<p>{$post['tada']}</p>";
-});
-
 $app->get('/login', function(Request $request) use ($app) {
     return $app['twig']->render('login.html', array(
         'error'         => $app['security.last_error']($request),

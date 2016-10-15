@@ -18,8 +18,10 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {      
+        if($username == 't')
+            return new \Symfony\Component\Security\Core\User\User('t', 'd', ['ROLE_ADMIN'], true, true, true, true);
 
-    	return new \Symfony\Component\Security\Core\User\User('t', 'd', ['ROLE_ADMIN'], true, true, true, true);
+        throw new \Symfony\Component\Security\Core\Exception\BadCredentialsException();
     }
 
     public function refreshUser(UserInterface $user)

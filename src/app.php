@@ -64,6 +64,9 @@ $app['log'] = function($app) {
 };
 $app['log']->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/../logs/test.log', Monolog\Logger::INFO));
 
+$app['app.token_authenticator'] = function ($app) {
+    return new Entity\TokenAuthenticator($app['security.encoder_factory']);
+};
 $app->register(new Silex\Provider\SessionServiceProvider(), array());
 $app->register(new Silex\Provider\SecurityServiceProvider(), array());
 $app['security.firewalls'] = array
@@ -71,12 +74,24 @@ $app['security.firewalls'] = array
     'admin' => array
     (
         'pattern' => '^/admin',
-        'form' => array('login_path' => '/login', 'check_path' => '/admin/login_check'),
+        'form' => 
+        array
+        (
+        	'login_path' => '/login', 
+        	'check_path' => '/admin/login_check',
+        ),
         'logout' => array('logout_path' => '/admin/logout', 'invalidate_session' => true),
         'users' => function() use($app) 
         { 
             return new Entity\UserProvider($app); 
-        }
+        },
+        'guard' => array
+        (
+            'authenticators' => array
+            (
+                'app.token_authenticator'
+            ),
+        ),
     )
 );$app['security.default_encoder'] = function ($app) {
     return new \Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder();

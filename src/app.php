@@ -74,7 +74,7 @@ $app['security.firewalls'] = array
 (
     'admin' => array
     (
-        'pattern' => '^/admin',
+        'pattern' => '/admin',
         'form' => 
         array
         (

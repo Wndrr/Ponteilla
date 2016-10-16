@@ -23,7 +23,7 @@ class UserProvider implements UserProviderInterface
         if($user != null)
             return $user;
 
-        throw new \Symfony\Component\Security\Core\Exception\BadCredentialsException();
+        throw new \Symfony\Component\Security\Core\Exception\BadCredentialsException("Compte introuvable");
     }
 
     public function refreshUser(UserInterface $user)

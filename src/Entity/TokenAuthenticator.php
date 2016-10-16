@@ -6,41 +6,37 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
+use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
-class TokenAuthenticator extends AbstractGuardAuthenticator
+class TokenAuthenticator extends AbstractFormLoginAuthenticator
 {
-    private $loginPath;
+    private $app;
 
 
-    public function __construct($loginPath)
+    public function __construct($app)
     {
-        $this->loginPath = $loginPath;
+        $this->app = $app;
     }
 
-    /**
-     * Called on every request. Return whatever credentials you want,
-     * or null to stop authentication.
-     */
     public function getCredentials(Request $request)
-    {
-        // Checks if the credential header is provided
-        if (!$token = $request->headers->get('X-AUTH-TOKEN')) {
+    {        
+        if ($request->getPathInfo() != '/hiking/admin/login_check') 
+        {
+
             return;
         }
 
-        // Parse the header or ignore it if the format is incorrect.
-        if (false === strpos($token, ':')) {
-            return;
-        }
         $username = $request->get('_username');
+        $request->getSession()->set(Security::LAST_USERNAME, $username);
         $password = $request->get('_password');
-        // What you return here will be passed to getUser() as $credentials
-        return array(
-            'username' =>$username,
-            'password' =>  $password
+        return array
+        (
+            'username' => $username,
+            'password' => $password
         );
     }
 
@@ -48,55 +44,25 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
     {
         $credentials = $credentials['username'];
 
-        // if null, authentication will fail
-        // if a User object, checkCredentials() is called
         return $userProvider->loadUserByUsername($credentials);
     }
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        // check credentials - e.g. make sure the password is valid
-        // no credential check is needed in this case
-
-        // return true to cause authentication success
-
-       //new \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken();
-
-        if($credentials['password'] == 'd')
+        if($credentials['password'] == 'pssw')
             return true;
 
-        throw new \Symfony\Component\Security\Core\Exception\BadCredentialsException("patate");
+        throw new BadCredentialsException("Mot de passe incorect");
     }
 
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
+    protected function getLoginUrl()
     {
-        // on success, let the request continue
-        return null;
+        $this->app['log']->addInfo("loginUrl");
+        return $this->app['url_generator']->generate('hiking_login');
     }
 
-    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    protected function getDefaultSuccessRedirectUrl()
     {
-        $data = array(
-            'message' => 'Identifiant ou mot de passe incorrecte'
-
-            // or to translate this message
-            // $this->translator->trans($exception->getMessageKey(), $exception->getMessageData())
-        );
-
-        return new JsonResponse($data, 403);
+        return $this->app['url_generator']->generate('hiking_index');
     }
-
-    /**
-     * Called when authentication is needed, but it's not sent
-     */
-    public function start(Request $request, AuthenticationException $authException = null)
-    {
-        return new \Symfony\Component\HttpFoundation\RedirectResponse($this->loginPath);
-    }
-
-    public function supportsRememberMe()
-    {
-        return false;
-    }
-
 }

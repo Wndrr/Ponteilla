@@ -66,10 +66,11 @@ $app['log'] = function($app) {
 $app['log']->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/../logs/test.log', Monolog\Logger::INFO));
 
 $app['app.token_authenticator'] = function ($app) {
-    return new Entity\TokenAuthenticator($app['security.firewalls']['admin']['form']['login_path']);
+    return new Entity\TokenAuthenticator($app);
 };
 $app->register(new Silex\Provider\SessionServiceProvider(), array());
 $app->register(new Silex\Provider\SecurityServiceProvider(), array());
+
 $app['security.firewalls'] = array
 (
     'admin' => array
@@ -78,7 +79,7 @@ $app['security.firewalls'] = array
         'form' => 
         array
         (
-        	'login_path' => 'login', 
+        	'login_route' => 'hiking_login', 
         	'check_path' => '/hiking/admin/login_check',
         ),
         'logout' => array('logout_path' => '/hiking/admin/logout', 'invalidate_session' => true),

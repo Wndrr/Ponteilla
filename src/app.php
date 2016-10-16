@@ -32,7 +32,7 @@ $app->register(new PhpMailerServiceProvider(), array(
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'dbs.options' => array (
-        'localhost' => array(
+        'default' => array(
             'driver'    => 'pdo_mysql',
             'host'      => 'localhost',
             'dbname'    => 'ponteilla',
@@ -50,6 +50,7 @@ $app->register(new DoctrineOrmServiceProvider, array(
             // Using actual filesystem paths
             array(
                 'type' => 'annotation',
+                'namespace' => 'Entity',
                 'path' => __DIR__.'/src/entity',
             ),
         ),
@@ -83,7 +84,7 @@ $app['security.firewalls'] = array
         'logout' => array('logout_path' => '/admin/logout', 'invalidate_session' => true),
         'users' => function() use($app) 
         { 
-            return new Entity\UserProvider($app); 
+            return new Entity\UserProvider($app['orm.em']); 
         },
         'guard' => array
         (

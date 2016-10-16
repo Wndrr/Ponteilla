@@ -34,12 +34,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
     });
 
 
-
-$app->get('/admin', function(Request $request) use ($app) {
-    return $app['twig']->render('logout.html');
-});
-
-
 $app->get('/test', function(Request $request) use ($app)
 {
   

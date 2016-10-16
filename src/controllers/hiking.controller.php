@@ -31,12 +31,6 @@ $hiking = $app['controllers_factory'];
     return $app['twig']->render('logout.html');
 	});
 
-	$hiking->get('/login', function(Request $request) use ($app) {
-    return $app['twig']->render('login.html', array(
-        'error'         => $app['security.last_error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),
-    ));
-});
 
 
 /*=====  End of Routes  ======*/

@@ -9,24 +9,26 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 class UserProvider implements UserProviderInterface
 {
-    private $conn;
+    private $em;
 
-    public function __construct($conn)
+    public function __construct(\Doctrine\ORM\EntityManager $em)
     {
-        $this->conn = $conn;
+        $this->em = $em;
     }
 
     public function loadUserByUsername($username)
     {      
-        if($username == 't')
-            return new \Symfony\Component\Security\Core\User\User('t', 'd', ['ROLE_ADMIN'], true, true, true, true);
+        $user = $this->em->getRepository('Entity\User')->findOneBy(array('username' => $username));
+
+        if($user != null)
+            return $user;
 
         throw new \Symfony\Component\Security\Core\Exception\BadCredentialsException();
     }
 
     public function refreshUser(UserInterface $user)
     {
-        if (!$user instanceof \Symfony\Component\Security\Core\User\User) {
+        if (!$user instanceof \Entity\User) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 

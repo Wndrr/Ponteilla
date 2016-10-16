@@ -84,7 +84,7 @@ $app['security.firewalls'] = array
         'logout' => array('logout_path' => '/admin/logout', 'invalidate_session' => true),
         'users' => function() use($app) 
         { 
-            return new Entity\UserProvider($app); 
+            return new Entity\UserProvider($app['orm.em']); 
         },
         'guard' => array
         (

@@ -33,16 +33,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
             return $app['twig']->render('errors/500.html.twig', $rtrnParams);
     });
 
-$app->get('/login', function(Request $request) use ($app) {
-    return $app['twig']->render('login.html', array(
-        'error'         => $app['security.last_error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),
-    ));
-});
 
-$app->get('/hiking/admin', function(Request $request) use ($app) {
-    return "admin";
-});
 
 $app->get('/admin', function(Request $request) use ($app) {
     return $app['twig']->render('logout.html');

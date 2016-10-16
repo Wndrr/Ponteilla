@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-16 11:12:57
+ * @Last Modified time: 2016-10-16 14:12:54
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -23,9 +23,20 @@ $hiking = $app['controllers_factory'];
 
 	$hiking->get('/loginRegister', function() use($app)
 	{
-		return 'loginRegister';
+		return $app['twig']->render('sections/hiking/user/loginRegister.html.twig');
 	})
 	->bind('hiking_loginRegister');
+
+	$hiking->get('/admin', function(Request $request) use ($app) {
+    return $app['twig']->render('logout.html');
+	});
+
+	$hiking->get('/login', function(Request $request) use ($app) {
+    return $app['twig']->render('login.html', array(
+        'error'         => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
+});
 
 
 /*=====  End of Routes  ======*/

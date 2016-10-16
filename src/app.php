@@ -74,14 +74,14 @@ $app['security.firewalls'] = array
 (
     'admin' => array
     (
-        'pattern' => '/admin',
+        'pattern' => 'hiking/admin',
         'form' => 
         array
         (
-        	'login_path' => '/login', 
-        	'check_path' => '/admin/login_check',
+        	'login_path' => 'login', 
+        	'check_path' => '/hiking/admin/login_check',
         ),
-        'logout' => array('logout_path' => '/admin/logout', 'invalidate_session' => true),
+        'logout' => array('logout_path' => '/hiking/admin/logout', 'invalidate_session' => true),
         'users' => function() use($app) 
         { 
             return new Entity\UserProvider($app['orm.em']); 

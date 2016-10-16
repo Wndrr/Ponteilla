@@ -15,6 +15,11 @@
 {% block bodyId %}hiking{% endblock %}
 
 {% block content %}
-	<div class="" style="height: 100%;">
-	{% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}</div>
+	    <form action="{{ path('hiking_admin_login_check') }}" method="post">
+        {{ error }}
+        <input type="text" name="_username" value="{{ last_username }}" />
+        <input type="password" name="_password" value="" />
+        <input type="submit" />
+    </form>
+	{% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}
 {% endblock %}

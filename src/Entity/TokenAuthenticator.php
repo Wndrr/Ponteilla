@@ -12,14 +12,20 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 class TokenAuthenticator extends AbstractGuardAuthenticator
 {
-    private $login_url;
+    private $loginPath;
+
+
+    public function __construct($loginPath)
+    {
+        $this->loginPath = $loginPath;
+    }
+
     /**
      * Called on every request. Return whatever credentials you want,
      * or null to stop authentication.
      */
-    public function getCredentials(Request $request, $login_url = 'login')
+    public function getCredentials(Request $request)
     {
-        $this->login_url = $login_url;
         // Checks if the credential header is provided
         if (!$token = $request->headers->get('X-AUTH-TOKEN')) {
             return;
@@ -85,7 +91,7 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
      */
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        return new \Symfony\Component\HttpFoundation\RedirectResponse($this->login_url);
+        return new \Symfony\Component\HttpFoundation\RedirectResponse($this->loginPath);
     }
 
     public function supportsRememberMe()

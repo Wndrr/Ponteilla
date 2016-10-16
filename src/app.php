@@ -65,8 +65,8 @@ $app['log'] = function($app) {
 };
 $app['log']->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/../logs/test.log', Monolog\Logger::INFO));
 
-$app['app.token_authenticator'] = function ($app) {
-    return new Entity\TokenAuthenticator($app);
+$app['app.FormAuthenticator'] = function ($app) {
+    return new Entity\FormAuthenticator($app);
 };
 $app->register(new Silex\Provider\SessionServiceProvider(), array());
 $app->register(new Silex\Provider\SecurityServiceProvider(), array());
@@ -91,7 +91,7 @@ $app['security.firewalls'] = array
         (
             'authenticators' => array
             (
-                'app.token_authenticator'
+                'app.FormAuthenticator'
             ),
         ),
     )

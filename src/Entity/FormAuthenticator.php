@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
-class TokenAuthenticator extends AbstractFormLoginAuthenticator
+class FormAuthenticator extends AbstractFormLoginAuthenticator
 {
     private $app;
 

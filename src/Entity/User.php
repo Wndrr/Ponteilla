@@ -2,8 +2,8 @@
 /**
  * @Author: Wndrr
  * @Date:   2016-10-14 22:43:29
- * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-15 23:27:02
+ * @Last Modified by:   Mathieu VIALES
+ * @Last Modified time: 2016-10-17 14:44:56
  */
 // src/Entity/User.php
 namespace Entity;
@@ -25,28 +25,42 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @Column(type="string", length=25, unique=true)
+     * @Column(type="string", unique=true)
      */
     private $username;
 
     /**
-     * @Column(type="string", length=64)
+     * @Column(type="string",)
      */
     private $password;
 
     /**
-     * @Column(type="string", length=60, unique=true)
+     * @Column(type="string", unique=true)
      */
     private $email;
 
     /**
-     * @Column(name="isActive", type="boolean")
+     * @Column(type="string")
+     */
+    private $salt;
+
+    /**
+     * @Column(type="string")
+     */
+    private $roles;
+
+    /**
+     * @Column(name="isActive", type="boolean", options={"default":false})
      */
     private $isActive;
 
     public function __construct()
     {
-        $this->isActive = true;
+        $this->username = $username;
+        $this->password = $password;
+        $this->salt = $salt;
+        $this->roles = $roles;
+        $this->isActive = false;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid(null, true));
     }

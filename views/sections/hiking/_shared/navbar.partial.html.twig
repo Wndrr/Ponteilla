@@ -51,10 +51,28 @@
 						Ressources	
 					</a>
 				</li>	
-				<li>
-					<a href="{{ path('hiking_login') }}" id="showLoginRegisterBox">
-						<i class="fa fa-sign-in" aria-hidden="true"></i> Connexion
-					</a>					
+				<li class="dropdown">
+					{% if is_granted('ROLE_USER') %}
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopu="true" aria-expanded="false">
+							Mon compte <span class="dropdownArrow glyphicon glyphicon-menu-down"></span>		
+						</a>
+						<ul class="dropdown-menu fade">
+							<li>
+								<a href="_blank">
+									Profile
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('hiking_admin_logout') }}">
+									Déconnexion
+								</a>
+							</li>
+						</ul>
+					{% else %}
+						<a href="{{ path('hiking_login') }}" id="showLoginRegisterBox">
+							<i class="fa fa-sign-in" aria-hidden="true"></i> Connexion
+						</a>			
+					{% endif %}		
 					<div id="loginRegisterBox" class="flip-container col-lg-12 hidden">
 						<div class="flipper col-lg-12">
 							<div class="front col-lg-12">

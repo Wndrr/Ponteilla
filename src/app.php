@@ -75,7 +75,8 @@ $app['security.firewalls'] = array
 (
     'admin' => array
     (
-        'pattern' => 'hiking/admin',
+        'pattern' => '^/',
+        'anonymous' => true,
         'form' => 
         array
         (
@@ -96,6 +97,13 @@ $app['security.firewalls'] = array
         ),
     )
 );
+
+$app['security.access_rules'] = array
+(
+    array('hiking/admin', 'ROLE_ADMIN'),
+    array('^/', 'IS_AUTHENTICATED_ANONYMOUSLY'),
+);
+
 $app['security.role_hierarchy'] = array
 (
     'ROLE_ADMIN' => array('ROLE_USER'),

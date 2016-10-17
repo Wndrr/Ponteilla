@@ -2,11 +2,12 @@
 /**
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
- * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-17 18:31:23
+ * @Last Modified by:   Wndrr
+ * @Last Modified time: 2016-10-17 22:35:03
  */
 
 use Symfony\Component\HttpFoundation\Request;
+use Entity\User;
 
 $hiking = $app['controllers_factory'];
 
@@ -39,11 +40,25 @@ $hiking = $app['controllers_factory'];
 	$hiking->post('/register/check', function(Request $request) use($app)
 	{
 		$username = $request->get('_username');
-		$password = $request->get('__email');
+		$email = $request->get('_email');
 		$password = $request->get('_password');
 
+		$user = new User($username, $password, $email);
 
-		return ;
+		$em = $app['orm.em'];
+		$userRepo = $em->getRepository('Entity\User');
+
+		if(!$userRepo->isPersistable($user))
+		{
+			$app['session']->getFlashBag()->set('formErrors', $userRepo->getErrors($user));
+
+			return $app->redirect($app['url_generator']->generate('hiking_register'));
+		}			
+
+		$em->persist($user);
+		$em->flush();
+
+		return $user->getId();
 	})
 	->bind('hiking_register_check');
 

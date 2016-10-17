@@ -20,6 +20,14 @@
     </h2>
     <div class="row">   
         <form action="{{ path('hiking_register_check') }}" method="post" class="form-vertical col-lg-4 col-lg-offset-4">
+            {% if app.session.getFlashBag.get('formErrors') is defined %}
+                <div class="panel panel-danger">
+                    {% for error in app.session.getFlashBag.get('formErrors') %}
+                        {{ error }}
+                        <br />
+                    {% endfor %}
+                </div>
+            {% endif %}
             <div class="form-group">
                 <label class="control-label" for="_username">Nom de famille</label>  
                 <div class="">

@@ -10,4 +10,26 @@ namespace Entity;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+	private $_errors = [];
+
+	public function isPersistable(User $user)
+	{
+		//Is username unique
+		$oneByUsername = $this->findOneBy(array('username' => $user->getUsername()));
+		if($oneByUsername != null)
+			array_push($this->_errors, 'Nom de famille déjà utilisé');
+
+		//Is username unique
+		$oneByEmail = $this->findOneBy(array('email' => $user->getEmail()));
+		if($oneByEmail != null)
+			array_push($this->_errors, 'Email déjà utilisé');
+
+		// Return true if there is no error, flase in other cases
+		return count($this->_errors) == 0;
+	}
+
+	public function getErrors()
+	{
+		return $this->_errors;
+	}
 }

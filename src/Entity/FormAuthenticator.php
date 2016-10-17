@@ -49,7 +49,7 @@ class FormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        if($credentials['password'] == 'pssw')
+        if($credentials['password'] == $user->getPassword())
             return true;
 
         throw new BadCredentialsException("Mot de passe incorect");

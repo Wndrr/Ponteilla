@@ -95,7 +95,14 @@ $app['security.firewalls'] = array
             ),
         ),
     )
-);$app['security.default_encoder'] = function ($app) {
+);
+$app['security.role_hierarchy'] = array
+(
+    'ROLE_ADMIN' => array('ROLE_USER'),
+);
+
+$app['security.default_encoder'] = function ($app) 
+{
     return new \Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder();
 };
 return $app;

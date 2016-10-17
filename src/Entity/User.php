@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-10-14 22:43:29
  * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-17 14:44:56
+ * @Last Modified time: 2016-10-17 18:01:05
  */
 // src/Entity/User.php
 namespace Entity;
@@ -84,7 +84,12 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return array('ROLE_USER', 'ROLE_ADMIN');
+        return split(',', $this->roles);
+    }
+
+    public function setRoles($roles)
+    {
+        return $this->roles = $roles;
     }
 
     public function eraseCredentials()

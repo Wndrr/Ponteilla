@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
  * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-17 18:08:38
+ * @Last Modified time: 2016-10-17 18:31:23
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -35,6 +35,17 @@ $hiking = $app['controllers_factory'];
 		return $app['twig']->render('sections/hiking/user/register.html.twig', array());
 	})
 	->bind('hiking_register');
+
+	$hiking->post('/register/check', function(Request $request) use($app)
+	{
+		$username = $request->get('_username');
+		$password = $request->get('__email');
+		$password = $request->get('_password');
+
+
+		return ;
+	})
+	->bind('hiking_register_check');
 
 	$hiking->get('/admin', function(Request $request) use ($app) {
     return $app['twig']->render('logout.html');

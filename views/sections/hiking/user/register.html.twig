@@ -1,0 +1,55 @@
+{% extends '/sections/_shared/global.layout.html.twig' %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="/assets/css/sections.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/hiking/_shared/navbar.partial.html.twig' %}
+        {% block navbar_logo %}
+			<img class="img img-responsive" src="/assets/img/hiking/logo.png" alt="logo du site">
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block bodyId %}hiking{% endblock %}
+
+{% block content %}
+    <h2>
+        Connexion
+    </h2>
+    <div class="row">   
+        <form action="{{ path('hiking_admin_login_check') }}" method="post" class="form-vertical col-lg-4 col-lg-offset-4">
+            <div class="form-group">
+                <label class="control-label" for="_username">Nom de famille</label>  
+                <div class="">
+                <input id="_username" name="_username" placeholder="nom de famille" class="form-control input-md" required type="text">
+                
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="_password">Mot de passe</label>
+                <div class="">
+                <input id="_password" name="_password" placeholder="**********" class="form-control input-md" required type="password">
+                
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="_passwordAgain">Verifier mot de passe</label>
+                <div class="">
+                    <input id="_passwordAgain" class="form-control input-md" required type="password">
+                
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="login" name="login" class="btn btn-success center-block">
+                    Inscription
+                </button>
+            </div>
+        </form>
+    </div>
+	{% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}
+{% endblock %}

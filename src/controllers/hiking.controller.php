@@ -2,8 +2,8 @@
 /**
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
- * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-16 18:35:01
+ * @Last Modified by:   Mathieu VIALES
+ * @Last Modified time: 2016-10-17 18:08:38
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +29,12 @@ $hiking = $app['controllers_factory'];
 	    ));
 	})
 	->bind('hiking_login');
+
+	$hiking->get('/register', function(Request $request) use($app)
+	{
+		return $app['twig']->render('sections/hiking/user/register.html.twig', array());
+	})
+	->bind('hiking_register');
 
 	$hiking->get('/admin', function(Request $request) use ($app) {
     return $app['twig']->render('logout.html');

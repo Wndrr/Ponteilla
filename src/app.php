@@ -51,7 +51,7 @@ $app->register(new DoctrineOrmServiceProvider, array(
             array(
                 'type' => 'annotation',
                 'namespace' => 'Entity',
-                'path' => __DIR__.'/src/entity',
+                'path' => __DIR__.'/src/Entity',
             ),
         ),
     ),

@@ -54,17 +54,17 @@
 				<li class="dropdown">
 					{% if is_granted('ROLE_USER') %}
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopu="true" aria-expanded="false">
-							Mon compte <span class="dropdownArrow glyphicon glyphicon-menu-down"></span>		
+							<span class="glyphicon glyphicon-user"></span> Mon compte <span class="dropdownArrow glyphicon glyphicon-menu-down"></span>		
 						</a>
 						<ul class="dropdown-menu fade">
 							<li>
 								<a href="_blank">
-									Profile
+									<span class="glyphicon glyphicon-cog"></span> Profile
 								</a>
 							</li>
 							<li>
 								<a href="{{ path('hiking_admin_logout') }}">
-									Déconnexion
+									<i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion
 								</a>
 							</li>
 						</ul>

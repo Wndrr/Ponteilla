@@ -75,7 +75,7 @@ $app['security.firewalls'] = array
 (
     'admin' => array
     (
-        'pattern' => '^/',
+        'pattern' => 'hiking/',
         'anonymous' => true,
         'form' => 
         array
@@ -83,7 +83,13 @@ $app['security.firewalls'] = array
         	'login_route' => 'hiking_login', 
         	'check_path' => '/hiking/admin/login_check',
         ),
-        'logout' => array('logout_path' => '/hiking/admin/logout', 'invalidate_session' => true),
+        'logout' => 
+        array
+        (
+            'logout_path' => '/hiking/admin/logout', 
+            'target_url' => 'hiking_index',
+            'invalidate_session' => true
+        ),
         'users' => function() use($app) 
         { 
             return new Entity\UserProvider($app['orm.em']); 

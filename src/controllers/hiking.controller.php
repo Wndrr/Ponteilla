@@ -58,7 +58,7 @@ $hiking = $app['controllers_factory'];
 		$em->persist($user);
 		$em->flush();
 
-		return $user->getId();
+		return $app->redirect($app['url_generator']->generate('hiking_index'));
 	})
 	->bind('hiking_register_check');
 

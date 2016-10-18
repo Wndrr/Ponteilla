@@ -16,11 +16,11 @@
 
 {% block content %}
     <h2>
-        Connexion
+        Inscription
     </h2>
-    <div class="row">   
+    <div class="row">           
         <form action="{{ path('hiking_register_check') }}" method="post" class="form-vertical col-lg-4 col-lg-offset-4">
-            {% if app.session.getFlashBag.get('formErrors') is defined %}
+            {% if app.session.flashbag.peekAll()|length > 0 %}
                 <div class="panel panel-danger">
                     {% for error in app.session.getFlashBag.get('formErrors') %}
                         {{ error }}

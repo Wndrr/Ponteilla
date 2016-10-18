@@ -2,8 +2,8 @@
 /**
  * @Author: Wndrr
  * @Date:   2016-10-14 22:43:29
- * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-17 21:31:20
+ * @Last Modified by:   Mathieu VIALES
+ * @Last Modified time: 2016-10-18 14:09:44
  */
 // src/Entity/User.php
 namespace Entity;
@@ -60,7 +60,7 @@ class User implements UserInterface, \Serializable
         $this->password = $password;
         $this->email = $email;
         $this->salt = '';
-        $this->roles = '';
+        $this->roles = 'ROLE_USER';
         $this->isActive = false;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid(null, true));

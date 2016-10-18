@@ -7,20 +7,20 @@
 {% set colSize = 12 / colCount %}
 
 <div class="row" id="footerNavbar">
-		<a href="_blank" class="col-lg-{{colSize}}">
+		<a href="{{ path("hiking_wip") }}" class="col-lg-{{colSize}}">
 			<span class="fa fa-file-text-o"></span>
 			Mentions légales	
 		</a>
-		<a href="_blank" class="col-lg-{{colSize}}">	
+		<a href="{{ path("hiking_wip") }}" class="col-lg-{{colSize}}">	
 			<span class="fa fa-link"></span>
 			Liens utiles	
 		</a>
-		<a href="_blank" class="col-lg-{{colSize}}">
+		<a href="{{ path("hiking_wip") }}" class="col-lg-{{colSize}}">
 			<span class="fa fa-sun-o"></span>
 			Météo	
 		</a>
 		{% if isAdmin %}
-			<a href="_blank" class="col-lg-{{colSize}}">
+			<a href="{{ path("hiking_wip") }}" class="col-lg-{{colSize}}">
 				<span class="glyphicon glyphicon-queen"></span>
 				Admin
 			</a>

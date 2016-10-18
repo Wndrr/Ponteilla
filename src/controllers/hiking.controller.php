@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-18 21:34:04
+ * @Last Modified time: 2016-10-18 23:14:23
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -65,6 +65,11 @@ $hiking = $app['controllers_factory'];
 	$hiking->get('/admin', function(Request $request) use ($app) {
     return $app['twig']->render('logout.html');
 	});
+
+	$hiking->get('/wip', function(Request $request) use ($app) {
+    	return $app['twig']->render('sections/hiking/dev/wip.html.twig');
+	})
+	->bind('hiking_wip');
 
 
 

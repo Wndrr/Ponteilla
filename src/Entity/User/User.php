@@ -2,18 +2,18 @@
 /**
  * @Author: Wndrr
  * @Date:   2016-10-14 22:43:29
- * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-18 14:09:44
+ * @Last Modified by:   Wndrr
+ * @Last Modified time: 2016-10-18 21:22:42
  */
 // src/Entity/User.php
-namespace Entity;
+namespace Entity\User;
 
 use Doctrine\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @Table(name="user")
- * @Entity(repositoryClass="Entity\UserRepository")
+ * @Entity(repositoryClass="Entity\User\UserRepository")
  */
 class User implements UserInterface, \Serializable
 {

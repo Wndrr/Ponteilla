@@ -11,6 +11,8 @@ use Wndrr\Provider\PhpMailerServiceProvider;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 
+require_once('./../config/persistance.cfg.php');
+
 $app = new Application();
 
 //Service providers
@@ -21,6 +23,7 @@ $app->register(new AssetServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
 
 $app->register(new TwigServiceProvider());
+
 $app['twig'] = $app->extend('twig', function ($twig, $app) 
 {
     return $twig;
@@ -32,14 +35,7 @@ $app->register(new PhpMailerServiceProvider(), array(
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'dbs.options' => array (
-        'default' => array(
-            'driver'    => 'pdo_mysql',
-            'host'      => 'localhost',
-            'dbname'    => 'ponteilla',
-            'user'      => 'ponteilla',
-            'password'  => 'ponteilla',
-            'charset'   => 'utf8',
-        )
+        'default' => $database
     ),
 ));
 
@@ -50,8 +46,8 @@ $app->register(new DoctrineOrmServiceProvider, array(
             // Using actual filesystem paths
             array(
                 'type' => 'annotation',
-                'namespace' => 'Entity',
-                'path' => __DIR__.'/src/Entity',
+                'namespace' => 'Entity\User',
+                'path' => __DIR__ . '/' . $entitiesPath,
             ),
         ),
     ),
@@ -66,7 +62,9 @@ $app['log'] = function($app) {
 $app['log']->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/../logs/test.log', Monolog\Logger::INFO));
 
 $app['app.FormAuthenticator'] = function ($app) {
-    return new Entity\FormAuthenticator($app);
+    return new 
+
+Entity\User\FormAuthenticator($app);
 };
 $app->register(new Silex\Provider\SessionServiceProvider(), array());
 $app->register(new Silex\Provider\SecurityServiceProvider(), array());
@@ -92,7 +90,9 @@ $app['security.firewalls'] = array
         ),
         'users' => function() use($app) 
         { 
-            return new Entity\UserProvider($app['orm.em']); 
+            return new 
+
+Entity\User\UserProvider($app['orm.em']); 
         },
         'guard' => array
         (

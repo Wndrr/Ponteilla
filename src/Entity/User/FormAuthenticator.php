@@ -1,6 +1,6 @@
 <?php
 
-namespace Entity;
+namespace Entity\User;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;

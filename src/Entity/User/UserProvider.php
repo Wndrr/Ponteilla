@@ -1,6 +1,6 @@
 <?php
 // src/AppBundle/Security/User/WebserviceUserProvider.php
-namespace Entity;
+namespace Entity\User;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -18,7 +18,7 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {      
-        $user = $this->em->getRepository('Entity\User')->findOneBy(array('username' => $username));
+        $user = $this->em->getRepository('Entity\User\User')->findOneBy(array('username' => $username));
 
         if($user != null)
             return $user;
@@ -28,7 +28,7 @@ class UserProvider implements UserProviderInterface
 
     public function refreshUser(UserInterface $user)
     {
-        if (!$user instanceof \Entity\User) {
+        if (!$user instanceof \Entity\User\User) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 

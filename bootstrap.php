@@ -3,17 +3,9 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 require_once __DIR__ ."/vendor/autoload.php";
+require_once('./config/persistance.cfg.php');
 
 $isDevMode = true;
-$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src/Entity"), $isDevMode);
+$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . '/' . $entitiesPath), $isDevMode);
 
-$params = array(
-    'driver'    => 'pdo_mysql',
-    'host'      => 'localhost',
-    'dbname'    => 'ponteilla',
-    'user'      => 'ponteilla',
-    'password'  => 'ponteilla',
-    'charset'   => 'utf8',
-);
-
-$entityManager = EntityManager::create($params, $config);
+$entityManager = EntityManager::create($database, $config);

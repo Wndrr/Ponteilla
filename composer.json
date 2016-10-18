@@ -33,7 +33,7 @@
         "dflydev/doctrine-orm-service-provider": "^2.0"
     },
     "autoload": {
-        "psr-0": { "": "src/", "Entity": "src/Entity" }
+        "psr-0": { "": "src/", "Entity/User": "src/entity/user" }
     },
     "extra": {
         "branch-alias": {

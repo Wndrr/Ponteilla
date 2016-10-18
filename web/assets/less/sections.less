@@ -462,15 +462,25 @@ body#hiking
 
 
 
+html {
+  height: 100%;
+}
+body
+{
+  position: relative;
+	min-height: 100%;
+}
 
 #footerNavbar 
 {
 	background: url('/assets/img/hiking/footerPattern.png');
 	text-align: center;
 	font-size: 1.4em;
-	position: relative;
+	position: absolute;
 	bottom: 0;
 	left: 0;
+	right: 0;
+	width: 100%;
 	a
 	{
 		color: black;
@@ -551,4 +561,9 @@ body#hiking
 	{
 		text-align: left;
 	}
+}
+
+.gotToOtherFormContainer
+{
+	text-align: center;
 }

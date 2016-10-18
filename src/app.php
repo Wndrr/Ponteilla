@@ -8,6 +8,11 @@ use Silex\Provider\HttpFragmentServiceProvider;
 
 use Wndrr\Provider\PhpMailerServiceProvider;
 
+use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
+
+require_once('./../config/persistance.cfg.php');
+
 $app = new Application();
 
 //Service providers
@@ -18,6 +23,7 @@ $app->register(new AssetServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
 
 $app->register(new TwigServiceProvider());
+
 $app['twig'] = $app->extend('twig', function ($twig, $app) 
 {
     return $twig;
@@ -27,4 +33,90 @@ $app->register(new PhpMailerServiceProvider(), array(
     // 'hello.default_name' => 'Igor',
 ));
 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'dbs.options' => array (
+        'default' => $database
+    ),
+));
+
+$app->register(new DoctrineOrmServiceProvider, array(
+    'orm.proxies_dir' => '/proxies',
+    'orm.em.options' => array(
+        'mappings' => array(
+            // Using actual filesystem paths
+            array(
+                'type' => 'annotation',
+                'namespace' => 'Entity\User',
+                'path' => __DIR__ . '/' . $entitiesPath,
+            ),
+        ),
+    ),
+));
+
+$app->register(new Silex\Provider\MonologServiceProvider(), array());
+
+// initialize the logger
+$app['log'] = function($app) {
+   return new Monolog\Logger('mylog');
+};
+$app['log']->pushHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/../logs/test.log', Monolog\Logger::INFO));
+
+$app['app.FormAuthenticator'] = function ($app) {
+    return new 
+
+Entity\User\FormAuthenticator($app);
+};
+$app->register(new Silex\Provider\SessionServiceProvider(), array());
+$app->register(new Silex\Provider\SecurityServiceProvider(), array());
+
+$app['security.firewalls'] = array
+(
+    'admin' => array
+    (
+        'pattern' => 'hiking/',
+        'anonymous' => true,
+        'form' => 
+        array
+        (
+        	'login_route' => 'hiking_login', 
+        	'check_path' => '/hiking/admin/login_check',
+        ),
+        'logout' => 
+        array
+        (
+            'logout_path' => '/hiking/admin/logout', 
+            'target_url' => 'hiking_index',
+            'invalidate_session' => true
+        ),
+        'users' => function() use($app) 
+        { 
+            return new 
+
+Entity\User\UserProvider($app['orm.em']); 
+        },
+        'guard' => array
+        (
+            'authenticators' => array
+            (
+                'app.FormAuthenticator'
+            ),
+        ),
+    )
+);
+
+$app['security.access_rules'] = array
+(
+    array('hiking/admin', 'ROLE_ADMIN'),
+    array('^/', 'IS_AUTHENTICATED_ANONYMOUSLY'),
+);
+
+$app['security.role_hierarchy'] = array
+(
+    'ROLE_ADMIN' => array('ROLE_USER'),
+);
+
+$app['security.default_encoder'] = function ($app) 
+{
+    return new \Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder();
+};
 return $app;

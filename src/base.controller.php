@@ -34,6 +34,21 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
     });
 
 
+$app->get('/test', function(Request $request) use ($app)
+{
+  
+    $em = $app['orm.em'];
+
+    $u = new Entity\User();
+    $u->setUsername("uname");
+    $u->setPassword("pssw");
+    $u->setEmail("pssw");
+
+    $test = $em->getRepository('Entity\User')->findBy(array('username' => 'uname'));
+    var_dump($test);
+    return 'test';
+});
+
 /*=====  End of Routes  ======*/
 
 /*===============================================

@@ -1,42 +1,69 @@
 <?php
-// src/AppBundle/Security/User/WebserviceUserProvider.php
+/**
+ * @Author: Mathieu VIALES
+ * @Date:   2016-10-19 17:55:38
+ * @Last Modified by:   Mathieu VIALES
+ * @Last Modified time: 2016-10-19 18:08:43
+ */
+
 namespace Entity\User;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 
+use Doctrine\ORM\EntityManager;
+
+/**
+ * Interface between the data layer and the buisness layer
+ */
 class UserProvider implements UserProviderInterface
 {
+    /**
+     * Instance of the entity manager
+     */
     private $em;
 
-    public function __construct(\Doctrine\ORM\EntityManager $em)
+    /**
+     * Well that's a constructor ...
+     */
+    public function __construct(EntityManager $em)
     {
-        $this->em = $em;
+        $this->_em = $em;
     }
 
+    /**
+     * Fetch a User from the database by username
+     */
     public function loadUserByUsername($username)
     {      
-        $user = $this->em->getRepository('Entity\User\User')->findOneBy(array('username' => $username));
+        $user = $this->_em->getRepository('Entity\User\User')->findOneBy(array('username' => $username));
 
         if($user != null)
             return $user;
 
-        throw new \Symfony\Component\Security\Core\Exception\BadCredentialsException("Compte introuvable");
+        throw new UsernameNotFoundException("Compte introuvable");
     }
 
+    /**
+     * Update the User's properties
+     */
     public function refreshUser(UserInterface $user)
     {
-        if (!$user instanceof \Entity\User\User) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
-        }
+        if (!$user instanceof User) 
+            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));        
 
         return $this->loadUserByUsername($user->getUsername());
     }
 
+    /**
+     * Ensure the provided User is an instance of the expected class
+     */
     public function supportsClass($class)
     {
-        return $class === '\Symfony\Component\Security\Core\User\User';
+        return $class === '\Entity\User\User';
     }
 }

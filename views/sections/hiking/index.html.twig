@@ -1,17 +1,17 @@
 {% extends '/sections/hiking/_shared/layout.html.twig' %}
 
 {% block hiking_content %}
-<div id="header" class="row">
+<section id="banner" class="row">
 	<h1>
 		Je marche donc je suis !
 	</h1>
-	<p>
+	<h3>
 		Venez marcher avec nous, un dimanche par mois
-	</p>
-</div>
+	</h3>
+</section>
 <div class="row">
-	<div class="firstRow col-lg-10 col-lg-offset-1">
-		<div id="left" class="container col-lg-5">
+	<div class="newsAndInfo col-lg-10 col-lg-offset-1">
+		<div class="container col-lg-5">
 			<div id="currentAnnouncement">
 				<div style="position: absolute; top:25px;right:15px">
 					<a href="{{ path("hiking_wip") }}">
@@ -47,7 +47,7 @@
 		<div id="centerLogo" class="container col-lg-2">
 			<img class="img img-responsive" src="/assets/img/hiking/centerLogo.png" alt="logo du site">
 		</div>
-		<div id="right" class="container col-lg-5">
+		<div id="infoAndContact" class="container col-lg-5">
 			<div id="joinAndContactBlock" class="col-lg-12">
 				<h2>
 					Adhésion
@@ -86,18 +86,18 @@
 					<button class="contactFormBtn btn btn-info col-xs-12">
 						Cacher le formulaire de contact
 					</button>
-					<form id="contactForm" class="">
+					<form id="contactForm" class="text-left">
 							<!-- Text input-->
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
 									    <label class="ccontrol-label" for="lastName">
-								    		Nom
+								    		Nom :
 										</label>  
 									</div>
 									<div class="col-lg-6">
 									    <label class="ccontrol-label" for="firstName">
-								    		Prénom
+								    		Prénom :
 										</label>  
 									</div>	
 								</div>  
@@ -114,7 +114,7 @@
 							<!-- Text input-->
 							<div id="emailBlock" class="form-group">
 							    <label class="control-label" for="email">
-						    		E-mail
+						    		E-mail :
 								</label>    
 						    	<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="text">				
 							</div>
@@ -122,7 +122,7 @@
 							<!-- Textarea -->
 							<div class="form-group">
 							    <label class="control-label" for="message">
-							    	Message
+							    	Message :
 								</label>
 						        <textarea class="form-control" id="message" name="message"></textarea>
 							</div>
@@ -140,7 +140,7 @@
 		</div>
 	</div>
 </div>
-<div id="footer" class="row glass">
+<section id="events" class="row glass">
 	<h2>
 		Evènements à venir
 	</h2>
@@ -167,7 +167,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">18/30</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -196,8 +196,8 @@
 									Détails <span class="glyphicon glyphicon-share-alt"></span>
 								</div>
 							</div>
-							<div class="title col-lg-12">
-								Randonnée de patates-aspirateurs
+							<div class="title col-lg-12">	
+								Randonnée de patates-aspirateurs	
 							</div>
 							<div class="text col-lg-12">
 								Chais quoi ecrire ici. tant pis ...
@@ -205,7 +205,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">12/24</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -245,7 +245,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">53/30</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -283,7 +283,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">18/30</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -302,7 +302,7 @@
 			</div>
 		</div>				
 	</div>
-</div>
+</section>
 <script>
 	jQuery(document).ready(function($) 
 	{

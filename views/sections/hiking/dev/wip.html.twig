@@ -1,20 +1,6 @@
-{% extends '/sections/_shared/global.layout.html.twig' %}
+{% extends '/sections/hiking/_shared/layout.html.twig' %}
 
-{% block custom_css %}
-	<link rel="stylesheet" type="text/css" href="/assets/css/sections.css">
-{% endblock %}
-
-{% block navbar %}
-    {% embed '/sections/hiking/_shared/navbar.partial.html.twig' %}
-        {% block navbar_logo %}
-			<img class="img img-responsive" src="/assets/img/hiking/logo.png" alt="logo du site">
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
-
-{% block bodyId %}hiking{% endblock %}
-
-{% block content %}
+{% block hiking_content %}
     <h2>
         Work in progress
     </h2>
@@ -26,5 +12,4 @@
             Revenez plus tard, on sait jamais, j'aurais peut être pris le temps de bosser dessus ? 
         </h3>
     </div>
-	{% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}
 {% endblock %}

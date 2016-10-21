@@ -2,10 +2,10 @@
 /**
  * @Author: Wndrr
  * @Date:   2016-10-14 22:43:29
- * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-18 21:22:42
+ * @Last Modified by:   Mathieu VIALES
+ * @Last Modified time: 2016-10-19 17:58:30
  */
-// src/Entity/User.php
+
 namespace Entity\User;
 
 use Doctrine\Mapping as ORM;

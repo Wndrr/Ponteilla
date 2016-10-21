@@ -3,7 +3,7 @@
  * @Author: Mathieu VIALES
  * @Date:   2016-10-19 17:56:14
  * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-19 18:08:33
+ * @Last Modified time: 2016-10-21 11:59:44
  */
 
 namespace Entity\User;
@@ -63,7 +63,10 @@ class FormAuthenticator extends AbstractFormLoginAuthenticator
      * Fetch a User from the database
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
-    {
+    {        
+        if(preg_match('/.+@.+/', $credentials['username']))
+        return $userProvider->loadUserByEmail($credentials['username']);
+
         return $userProvider->loadUserByUsername($credentials['username']);
     }
 

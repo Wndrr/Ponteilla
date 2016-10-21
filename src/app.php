@@ -95,6 +95,13 @@ $app = new Application();
 
         $app['log']->pushHandler(new StreamHandler(__DIR__ . '/../logs/test.log', Logger::INFO));
 
+
+        $app['log.user'] = function($app) 
+        {
+           return new Logger('user');
+        };
+        $app['log.user']->pushHandler(new StreamHandler(__DIR__ . '/../logs/user.log', Logger::INFO));
+
     /*=====  End of Logs  ======*/
 
     /*================================

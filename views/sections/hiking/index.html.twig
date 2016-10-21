@@ -1,31 +1,19 @@
-{% extends '/sections/_shared/global.layout.html.twig' %}
+{% extends '/sections/hiking/_shared/layout.html.twig' %}
 
-{% block custom_css %}
-	<link rel="stylesheet" type="text/css" href="/assets/css/sections.css">
-{% endblock %}
+{% block page_title %}Randonnée pédestre{% endblock %}
 
-{% block navbar %}
-    {% embed '/sections/hiking/_shared/navbar.partial.html.twig' %}
-        {% block navbar_logo %}
-			<img class="img img-responsive" src="/assets/img/hiking/logo.png" alt="logo du site">
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
-
-{% block bodyId %}hiking{% endblock %}
-
-{% block content %}
-<div id="header" class="row">
+{% block hiking_content %}
+<section id="banner" class="row">
 	<h1>
 		Je marche donc je suis !
 	</h1>
-	<p>
+	<h3>
 		Venez marcher avec nous, un dimanche par mois
-	</p>
-</div>
+	</h3>
+</section>
 <div class="row">
-	<div class="firstRow col-lg-10 col-lg-offset-1">
-		<div id="left" class="container col-lg-5">
+	<div class="newsAndInfo col-lg-10 col-lg-offset-1">
+		<div class="container col-lg-5">
 			<div id="currentAnnouncement">
 				<div style="position: absolute; top:25px;right:15px">
 					<a href="{{ path("hiking_wip") }}">
@@ -61,8 +49,8 @@
 		<div id="centerLogo" class="container col-lg-2">
 			<img class="img img-responsive" src="/assets/img/hiking/centerLogo.png" alt="logo du site">
 		</div>
-		<div id="right" class="container col-lg-5">
-			<div id="joinAndContactBlock" class="col-lg-12">
+		<div id="infoAndContact" class="container col-lg-5">
+			<div id="infoAndContactBlock" class="col-lg-12">
 				<h2>
 					Adhésion
 				</h2>
@@ -100,18 +88,18 @@
 					<button class="contactFormBtn btn btn-info col-xs-12">
 						Cacher le formulaire de contact
 					</button>
-					<form id="contactForm" class="">
+					<form id="contactForm" class="text-left">
 							<!-- Text input-->
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
 									    <label class="ccontrol-label" for="lastName">
-								    		Nom
+								    		Nom :
 										</label>  
 									</div>
 									<div class="col-lg-6">
 									    <label class="ccontrol-label" for="firstName">
-								    		Prénom
+								    		Prénom :
 										</label>  
 									</div>	
 								</div>  
@@ -128,7 +116,7 @@
 							<!-- Text input-->
 							<div id="emailBlock" class="form-group">
 							    <label class="control-label" for="email">
-						    		E-mail
+						    		E-mail :
 								</label>    
 						    	<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="text">				
 							</div>
@@ -136,7 +124,7 @@
 							<!-- Textarea -->
 							<div class="form-group">
 							    <label class="control-label" for="message">
-							    	Message
+							    	Message :
 								</label>
 						        <textarea class="form-control" id="message" name="message"></textarea>
 							</div>
@@ -154,7 +142,7 @@
 		</div>
 	</div>
 </div>
-<div id="footer" class="row glass">
+<section id="events" class="row glass">
 	<h2>
 		Evènements à venir
 	</h2>
@@ -181,7 +169,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">18/30</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -210,8 +198,8 @@
 									Détails <span class="glyphicon glyphicon-share-alt"></span>
 								</div>
 							</div>
-							<div class="title col-lg-12">
-								Randonnée de patates-aspirateurs
+							<div class="title col-lg-12">	
+								Randonnée de patates-aspirateurs	
 							</div>
 							<div class="text col-lg-12">
 								Chais quoi ecrire ici. tant pis ...
@@ -219,7 +207,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">12/24</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -259,7 +247,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">53/30</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -297,7 +285,7 @@
 						</div>
 						<div class="back col-lg-12">
 							<div class="row">
-								<div class="timeLeft col-lg-6">
+								<div class="col-lg-6">
 									<span class="label label-default">18/30</span> Inscrits
 								</div>
 								<div class="difficulty col-lg-6">
@@ -316,146 +304,35 @@
 			</div>
 		</div>				
 	</div>
-</div>
-{% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}
+</section>
 <script>
 	jQuery(document).ready(function($) 
 	{
-		$('#currentAnnouncement').css('max-height', parseInt($('#joinAndContactBlock').css('height')) - parseInt($('.contactFormBtn').css('height')) + "px");
+		'use strict';
+		
+		var infoBlockHeight = parseInt($('#infoAndContactBlock').css('height'));
+		var contactBtnHeight = parseInt($('.contactFormBtn').css('height'));
+
+		// Restrict the news block's vertical size
+		$('#currentAnnouncement').css('max-height', infoBlockHeight - contactBtnHeight + "px");
+
+		// Whene the news content overflows, show the "read more" button
 		if($('#currentAnnouncement')[0].scrollHeight >  $('#currentAnnouncement').innerHeight())
 		{
 			$('#showCompleteAnnoucement').show();
 		}
 
-	});
-
-	$('.contactFormBtn').click(function()
+		$('.contactFormBtn').click(function()
 		{
 			$('#contactPanel').toggleClass('in');
 		});
+	});
+
 </script>
 
-
+<script type="text/javascript" src="/assets/js/ContactFormManager.class.js"></script>
 <script>
-
-	/*====================================
-	=            Contact form            =
-	====================================*/
-			var ContactFormManager = function(selector)
-			{
-				/*==================================
-				=            Properties            =
-				==================================*/				
-					/*----------  Public  ----------*/
-					
-					/*----------  Private  ----------*/		
-					var form = $(selector);
-					var serializedForm = null;
-					var checkboxes = 
-					{
-						container: form.find('#sectionsCheckboxes'),
-						inputs: form.find('#sectionsCheckboxes:checkbox')
-					};
-
-					var email = 
-					{
-						container: form.find('#emailBlock'),
-						input: form.find('#emailBlock input')
-					};
-				
-				/*=====  End of Properties  ======*/
-				
-				/*===============================
-				=            Methods            =
-				===============================*/				
-					/*----------  Public  ----------*/
-
-					
-					/*----------  Private  ----------*/	
-					var bindEvents = function()
-					{
-						form.on('submit', function(e)
-						{
-							e.preventDefault();
-
-							console.log(validate());
-							if(validate())
-								submit();
-						});
-
-					};
-
-					var validate = function()
-					{
-						/*=============================
-						=            Email            =
-						=============================*/
-						
-						var emailPattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
-		    			
-		    			var isEmailValid = emailPattern.test(email.input.val());
-
-										
-		    			if(isEmailValid)  	
-		    				email.container.removeClass('has-error');
-
-		    			else
-							email.container.addClass('has-error');
-						
-						/*=====  End of Email  ======*/
-
-						return isEmailValid;
-					};
-
-					var submit = function()
-					{						
-
-						//Save the form as a serialied object
-						serializedForm = form.serialize();
-
-						changeFormContent($('#contactLoader'), function()
-						{
-							//Sends form using AJAX
-							$.ajax(
-							{
-								type: "POST",
-								url: "{{path('ajax_contact')}}",
-								data: serializedForm,
-								success: function(data)
-								{
-									changeFormContent(data, function(){});
-								}
-							});
-						});	
-					};	
-
-					var changeFormContent = function(newContent, callBack)
-					{
-						//Hide the form
-						form.slideUp('fast', function()
-						{
-							//Replace the form content with the provided content
-							form.html(newContent);
-
-							//Show the animation
-							form.slideDown('slow', callBack());
-						});
-					};
-
-				
-				/*=====  End of Methods  ======*/
-
-				/*===================================
-				=            Constructor            =
-				===================================*/
-				
-				bindEvents();
-				
-				/*=====  End of Constructor  ======*/				
-			}
-
-			var formManager = new ContactFormManager('#contactForm');
-	/*=====  End of Contact form  ======*/	
-
+	/*----------  Start the contact form manager  ----------*/
+	var formManager = new ContactFormManager('#contactForm', "{{path('ajax_contact')}}");
 </script>
 {% endblock %}

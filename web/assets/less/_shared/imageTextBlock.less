@@ -1,0 +1,90 @@
+ 
+#textAndContactContainer
+{
+	#textBlock, .textBlock
+	{
+		& > div
+		{
+			background-color: rgba(200, 230, 220, 0.8);
+			color: black;
+
+			padding: 1%;
+			text-align: center;
+			font-size: 1.3em;
+		}
+	}
+	
+	form
+	{
+		fieldset > legend
+		{
+			text-align: center;
+			color: #B31400;
+		}
+	}
+}
+
+/*----------  Small devices  ----------*/
+@media only screen and (max-width : 992px) 
+{
+	#contactBlock
+	{
+		margin-top: 6%;
+	}
+}
+
+/*----------  Large devices  ----------*/		
+@media only screen and (min-width : 992px) 
+{
+	#textAndContactContainer
+	{
+		display: flex;
+
+		#textBlock
+		{
+			min-height: 100%;
+			flex: 1;
+
+			& > div
+			{
+				position: absolute;
+				bottom: 1%;
+				left: 1%;
+				width: 98%;
+			}
+		} 
+
+		#contactFormSuccessResponse
+		{
+			padding: 1%;
+			padding-top: 3%;
+		}
+	}
+
+
+	&#relaxation #textAndContactContainer #textBlock > div
+	{
+		top: 1%;
+		bottom: auto;
+	}	
+
+	#textBlocksContainer
+	{
+		display: flex;
+
+		 div 
+		 {
+		 	flex: 1;
+		 	div
+			{
+				height: 100%;	
+				background-color: rgba(200, 230, 220, 0.8);
+				color: black;
+
+				padding: 1%;
+				text-align: center;
+				font-size: 1.3em;
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{% extends '/sections/_shared/global.layout.html.twig' %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/hiking.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/hiking/_shared/headerBar.partial.html.twig' %}
+        {% block navbar_logo %}
+            <img class="img img-responsive" src="/assets/img/hiking/logo.png" alt="logo du site">
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% block hiking_content %}
+        
+    {% endblock %}
+    {% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}    
+{% endblock %}

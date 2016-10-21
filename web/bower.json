@@ -12,6 +12,7 @@
     "bootstrap": "^3.3.7",
     "TextOnPicture": "Wndrr/TextOnPicture",
     "SVG-Loaders": "svg-loaders#^1.0.2",
-    "components-font-awesome": "^4.6.3"
+    "components-font-awesome": "^4.6.3",
+    "remarkable-bootstrap-notify": "^3.1.3"
   }
 }

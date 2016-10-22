@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
  * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-19 13:31:45
+ * @Last Modified time: 2016-10-21 13:34:53
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -65,6 +65,8 @@ $hiking = $app['controllers_factory'];
 
 			$em->persist($user);
 			$em->flush();
+
+			$app['session']->getFlashBag()->add('notify', "Compte crée avec succès, attendez qu'il soit validé");
 
 			return $app->redirect($app['url_generator']->generate('hiking_index'));
 		})

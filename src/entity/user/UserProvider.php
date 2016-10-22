@@ -3,7 +3,7 @@
  * @Author: Mathieu VIALES
  * @Date:   2016-10-19 17:55:38
  * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-19 18:08:43
+ * @Last Modified time: 2016-10-21 11:59:42
  */
 
 namespace Entity\User;
@@ -41,6 +41,19 @@ class UserProvider implements UserProviderInterface
     public function loadUserByUsername($username)
     {      
         $user = $this->_em->getRepository('Entity\User\User')->findOneBy(array('username' => $username));
+
+        if($user != null)
+            return $user;
+
+        throw new UsernameNotFoundException("Compte introuvable");
+    }
+
+    /**
+     * Fetch a User from the database by email
+     */
+    public function loadUserByEmail($email)
+    {      
+        $user = $this->_em->getRepository('Entity\User\User')->findOneBy(array('email' => $email));
 
         if($user != null)
             return $user;

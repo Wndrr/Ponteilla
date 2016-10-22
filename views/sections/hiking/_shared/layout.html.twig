@@ -16,5 +16,21 @@
     {% block hiking_content %}
         
     {% endblock %}
+
     {% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}    
+	{% if app.session.flashbag.peekAll()|length > 0 %}
+		<div class="panel panel-danger">
+			{% for error in app.session.getFlashBag.get('notify') %}
+				<script>
+					$.notify(
+					{
+					    message: '{{ error }}' 
+					},
+					{
+					    type: 'success'
+					});
+				</script>
+			{% endfor %}
+		</div>
+	{% endif %}
 {% endblock %}

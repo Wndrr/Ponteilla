@@ -2,8 +2,8 @@
 /**
  * @Author: Mathieu VIALES
  * @Date:   2016-10-19 17:56:14
- * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-19 18:08:33
+ * @Last Modified by:   Wndrr
+ * @Last Modified time: 2016-10-21 23:30:46
  */
 
 namespace Entity\User;
@@ -63,8 +63,31 @@ class FormAuthenticator extends AbstractFormLoginAuthenticator
      * Fetch a User from the database
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
-    {
-        return $userProvider->loadUserByUsername($credentials['username']);
+    {        
+        $username = $credentials['username'];
+
+        $this->_app['log.user']->addInfo("Authentication attempt as '$username'");    
+
+        $user = null;
+
+        try
+        {
+            if(preg_match('/.+@.+/', $username))
+                $user = $userProvider->loadUserByEmail($username);
+
+            else
+                $user = $userProvider->loadUserByUsername($username); 
+        }
+
+        catch(\Exception $e)
+        {
+            $this->_app['log.user']->addInfo("Authentication failure --> {$e->getMessage()}");   
+
+            throw $e;
+        }
+
+        return $user;
+
     }
 
     /**
@@ -73,8 +96,12 @@ class FormAuthenticator extends AbstractFormLoginAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {        
         if($credentials['password'] == $user->getPassword())
-            return true;
+        {
+            $this->_app['log.user']->addInfo("Authentication success"); 
+            return true;   
+        }           
 
+        $this->_app['log.user']->addInfo("Authentication failure --> wrong password"); 
         throw new BadCredentialsException("Mot de passe incorect");
     }
 

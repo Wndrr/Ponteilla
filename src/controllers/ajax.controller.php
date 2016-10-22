@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-21 20:25:50
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-22 17:05:37
+ * @Last Modified time: 2016-10-22 17:16:43
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -17,6 +17,8 @@ $ajax = $app['controllers_factory'];
 	/*----------  Send contact e-mail  ----------*/
 	$ajax->post('/ajaxValidation/contact', function(Request $r) use($app)
 	{
+		$app['log.contact']->addInfo('Contact email - preparation');
+
 		/*==================================
 		=            Build vars            =
 		==================================*/
@@ -27,6 +29,13 @@ $ajax = $app['controllers_factory'];
 		    $sections = implode(', ', $r->get('section'));
 			$message = $r->get('message');
 			$date = date('d/m/Y - H:i');
+
+			$app['log.contact']->addInfo('Contact email info', array
+				(
+					'email' => $email,
+					'lastName' => $lastName,
+					'firstName' => $firstName,
+				));
 		
 		/*=====  End of Create vars  =====*/
 		
@@ -74,9 +83,13 @@ $ajax = $app['controllers_factory'];
 			$mail->addAddress("sectionrando.frponteillanyls@gmail.com");
 
 	    if($mail->send()) 
-			return $app['twig']->render('/sections/_shared/contactSuccess.partial.html.twig');	    
-	    else 
-	        return 'Message could not be sent.' + 'Mailer Error: ' . $mail->ErrorInfo;
+	    {
+			$app['log.contact']->addInfo('Contact email - success');
+			return $app['twig']->render('/sections/_shared/contactSuccess.partial.html.twig');	 
+	    }
+
+		$app['log.contact']->addInfo('Contact email - fail');
+	    return 'Message could not be sent.' + 'Mailer Error: ' . $mail->ErrorInfo;
 	    
 	})->bind('ajax_contact');
 

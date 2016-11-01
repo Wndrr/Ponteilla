@@ -2,8 +2,8 @@
 /**
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
- * @Last Modified by:   Mathieu VIALES
- * @Last Modified time: 2016-10-21 13:34:53
+ * @Last Modified by:   Wndrr
+ * @Last Modified time: 2016-11-01 16:35:34
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -21,6 +21,13 @@ $hiking = $app['controllers_factory'];
 	    return $app['twig']->render('sections/hiking/index.html.twig');
 	})
 	->bind('hiking_index');
+
+	/*----------  Section index  ----------*/
+	$hiking->get('/rules', function() use($app)
+	{
+	    return $app['twig']->render('sections/hiking/rules.html.twig');
+	})
+	->bind('hiking_rules');
 
 	/*=====================================
 	=            User-specific            =

@@ -1,99 +1,152 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Foyer rural de Ponteilla-Nyls
-        </title>
+	<head>
+		<title>
+			Foyer rural de Ponteilla-Nyls
+		</title>
+
+		<!-- Bootstrap 3 -->
+		<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- textOnPicture -->
+		<link href="/vendor/wndrr/text-on-picture/css/design.css" rel="stylesheet">
+		<!-- textOnPicture -->
+		<link href="/bower_components/TextOnPicture/dist/TextOnPicture.component.css" rel="stylesheet">
+		<!-- Custom -->
+		<link href="/assets/css/index.css" rel="stylesheet">
+
+		<!-- Jqueyr -->
+		<script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- Bootstrap 3 -->
+		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- textOnPicture -->
+		<script src="/bower_components/TextOnPicture/dist/TextOnPicture.component.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body id="foyerRural" class="container-fluid">
+		<section id="header" class="row">       
+			<h1 class="col-lg-12">            				
+				<img src="/assets/img/logo.jpg" alt="fgh" style="height:70px;">     
+				Foyer rural de Ponteilla-Nyls
+			</h1>
+			<span style="text-align: right;"></span>
+			<div id="headerText" class="col-lg-12">
+				<div class="row">
+					<div id="contact" class="col-lg-4 col-lg-offset-7">
+						Le foyer rural de PONTEILLA-NYLS vous accueille :
+						<br />
+						<a href="mailto:foyerruralponteillanyls@gmail.com">foyerruralponteillanyls@gmail.com</a>
+						<br />
+						06.70.61.40.44
+					</div> 
+				</div>
+				<div class="row">
+					<div id="news" class="col-lg-5 col-lg-offset-1">
+						<h3>
+							REVEILLON ST SYLVESTRE 31 décembre 2016
+						</h3>
+						<span style="color: rgb(250, 100, 100); margin-left: 15%;">"Un réveillon comme à la maison"</span> <br /> Convivialité,  échange,  partage, ambiance. ... Chacun amène son repas, ses couverts, ses boissons .... Prévoir des mets festifs, ce n'est pas un pique nique il est fortement recommandé de partager, faire découvrir, échanger <span id="newsContent"> Inscription : 10 € adhérents foyer rural 15 € pour les non adhérents 5 € pour les enfants de 6 à 18 ans ceci pour couvrir les frais de sono, d'animation, les droits sacem, les cotillons, le ménage de la salle Nombre de places très limité Organisateur foyer rural ponteilla nyls ce mail est envoyé en priorité aux sections du foyer rural et aux partenaires de notre association, il vous est donc conseillé de diffuser à vos adhérents et de réserver très vite et ce avant le 10 novembre en effet à cette date là, la communication sera étendue comment réserver : par mail : foyerruralponteillanyls@gmail.com liste avec nom / prénom / adresse / date de naissance / tél / mail le paiement par cheque global ou individuel viendra valider la réservation ( à envoyer par courrier postal à foyer rural 31 av pau casals 66300 ponteilla , ordre foyer rural )</span> 
+						<div id="toggleNews">[lire la suite]</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<div id="sportsSections" class="col-lg-8">
+					<h2>
+						sections sportives
+					</h2>
+					<div class="row">
+						<div class="col-lg-6">
+							<a href="{{ path('hiking_index') }}" class="activityBlock col-lg-12">
+								<img src="/assets/img/indexThumbnails/hiking.jpg" class="img img-responsive" alt="">
+			                    <div>
+			                        <h2>
+			                        	Randonnée pédestre
+			                        </h2>
+			                    </div>
+							</a>
+						</div>
+						<a href="{{ path('archery_index') }}" class="col-lg-6">
+							<div class="col-lg-12">
+								<img src="/assets/img/indexThumbnails/archery.jpg" class="img img-responsive" alt="">
+							</div>
+						</a>
+					</div>
+					<div class="row">
+						<a href="{{ path('nordWalking_index') }}" class="col-lg-6">
+							<div class="col-lg-12">
+								<img src="/assets/img/indexThumbnails/nordWalking.jpg" class="img img-responsive" alt="">
+							</div>
+						</a>
+						<a href="{{ path('tableTennis_index') }}" class="col-lg-6">
+							<div class="col-lg-12">
+								<img src="/assets/img/indexThumbnails/tableTennis.jpg" class="img img-responsive" alt="">
+							</div>
+						</a>
+					</div>
+				</div>
+				<div id="activities" class="col-lg-4">
+					<h2>
+						activités
+					</h2>
+					<div class="row">			
+						<a href="{{ path('teens_index') }}" class="col-lg-12">
+							<div class="col-lg-12">
+								<img src="/assets/img/indexThumbnails/foyer.jpg"class="img img-responsive" alt="">
+							</div>
+						</a>
+					</div>
+					<div class="row">	
+						<a href="{{ path('relaxation_index') }}" class="col-lg-12">
+							<div class="col-lg-12">
+								<img src="/assets/img/indexThumbnails/happyRelax.jpg"class="img img-responsive" alt="">
+							</div>
+						</a>
+					</div>					
+				</div>
+			</div>
+		</section>
+
+		<script>
+			var isNewsOpen = false;
+
+			$('#toggleNews').on('click', function()
+			{
+				var newsContent = $('#newsContent');
+				var toggleLink = $('#toggleNews');
+				var news = $('#news');
+				var header = $('#header');
+
+				if(isNewsOpen)
+				{
+					news.removeClass('opened');
+					toggleLink.html('[lire la suite]')
+					newsContent.slideUp('fast', function()
+					{
+						header.css('min-height', 'auto');
+						header.css('max-height', 'auto');
+					});
+				}
+
+				else
+				{
+					header.css('min-height', header.css('height'));
+					header.css('max-height', header.css('height'));
+					newsContent.slideDown('fast');
+					news.addClass('opened');
+					toggleLink.html('[cacher la news]')
+
+				}
+
+				isNewsOpen = !isNewsOpen;
+			});
 
 
-
-
-        <!-- Bootstrap 3 -->
-        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- textOnPicture -->
-        <link href="/vendor/wndrr/text-on-picture/css/design.css" rel="stylesheet">
-        <!-- textOnPicture -->
-        <link href="/bower_components/TextOnPicture/dist/TextOnPicture.component.css" rel="stylesheet">
-        <!-- Custom -->
-        <link href="/assets/css/index.css" rel="stylesheet">
-
-        <!-- Jqueyr -->
-        <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-        <!-- Bootstrap 3 -->
-        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-        <!-- textOnPicture -->
-        <script src="/bower_components/TextOnPicture/dist/TextOnPicture.component.js" type="text/javascript" charset="utf-8"></script>
-        
-    </head>
-    <body id="index">   
-        <div class="headContainer">
-            <h1>
-                Foyer rural de Ponteilla-Nyls
-            </h1>
-        </div>
-        <div id="lg_mg_body" class=""> 
-            <div class="bodyContainer">
-                <a class="activityBlock" href="{{ path('hiking_index') }}">
-                    <img src="/assets/img/indexThumbnails/hiking.jpg" alt="Randonnée pedestre (image introuvable)">
-                    <div>
-                        <h2>
-                            Randonnée pédestre
-                        </h2>
-                    </div>
-                </a>
-                <a class="activityBlock" href="{{ path('nordWalking_index') }}">
-                    <img src="/assets/img/indexThumbnails/nordWalking.jpg" alt="Marche nordique (image introuvable)">
-                    <div>
-                        <h2>
-                            Marche nordique
-                        </h2>
-                    </div>
-                </a>
-            </div>
-            <div class="bodyContainer">
-                <a class="activityBlock" href="{{ path('archery_index') }}">
-                    <img src="/assets/img/indexThumbnails/archery.jpg" alt="Randonnée pedestre (image introuvable)">
-                    <div>
-                        <h2>
-                            Tir à l'arc
-                        </h2>
-                    </div>
-                </a>
-                <a class="activityBlock" href="{{path('tableTennis_index')}}">
-                    <img src="/assets/img/indexThumbnails/tableTennis.jpg" alt="Tennis de table (image introuvable)">
-                    <div>
-                        <h2>
-                            Tennis de table
-                        </h2>
-                    </div>
-                </a>
-            </div>
-            <div class="bodyContainer">
-                <a class="activityBlock" href="{{ path('relaxation_index') }}">
-                    <img src="/assets/img/indexThumbnails/happyRelax.jpg" alt="Relaxation et bien être (image introuvable)">
-                    <div>
-                        <h2>
-                            Relaxation HappyRelax
-                        </h2>
-                    </div>
-                </a>
-                <a class="activityBlock" href="{{ path('teens_index') }}">
-                    <img src="/assets/img/indexThumbnails/foyer.jpg" alt="Relaxation et bien être (image introuvable)">
-                    <div>
-                        <h2>
-                            Point ados / Animations
-                        </h2>
-                    </div>
-                </a>
-            </div>
-        </div>  
-        <script type="text/javascript">
-            
             $(document).ready(function($) 
             {
                 new TextOnPicture(".activityBlock");        
             });
-        </script>
-    </body>
+		</script>
+	</body>
 </html>
- 

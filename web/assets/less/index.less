@@ -43,20 +43,7 @@ body, html
 		font-size: 1.8em;
 	}
 
-	#news
-	{
-		#newsContent
-		{
-			display: none;
-		}
 
-		#toggleNews
-		{
-			color: aqua;
-			cursor: pointer;
-			text-align: center;
-		}
-	}
 
 	.opened
 	{
@@ -75,9 +62,35 @@ body, html
 			color: white;
 			padding: 1.5%;
 			text-align: justify;
+
+			transition: background-color 1s ease-in-out;
+
+			&#news
+			{
+				z-index: 10;
+				
+				#newsContent
+				{
+					display: none;
+				}
+
+				#toggleNews
+				{
+					color: aqua;
+					cursor: pointer;
+					text-align: center;
+				}
+			}
+
+			&.opened
+			{
+				background-color: rgba(20, 20, 20, 1);
+			}
 		}
 
 		transition: all 1s linear;
+
+
 	}
 }
 

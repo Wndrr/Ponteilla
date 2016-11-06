@@ -135,10 +135,10 @@
 
 				if(isNewsOpen)
 				{
-					news.removeClass('opened');
 					toggleLink.html('[lire la suite]')
 					newsContent.slideUp('fast', function()
 					{
+						news.removeClass('opened');
 						header.css('min-height', 'auto');
 						header.css('max-height', 'auto');
 					});

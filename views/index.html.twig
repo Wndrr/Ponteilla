@@ -50,63 +50,78 @@
 				</div>
 			</div>
 		</section>
-		<section>
+		<section id="sections" style="height:20%;">
 			<div class="row">
-				<div id="sportsSections" class="col-lg-8">
+				<div class="col-lg-8">
 					<h2>
 						sections sportives
 					</h2>
 					<div class="row">
-						<div class="col-lg-6">
-							<a href="{{ path('hiking_index') }}" class="activityBlock col-lg-12">
-								<img src="/assets/img/indexThumbnails/hiking.jpg" class="img img-responsive" alt="">
-			                    <div>
-			                        <h2>
-			                        	Randonnée pédestre
-			                        </h2>
-			                    </div>
+						<div class="activity col-lg-6">
+							<a href="" class="col-lg-12">
+								<h3>
+									Randonnée pédestre
+								</h3>
+								<img src="/assets/img/indexThumbnails/hiking.jpg" alt="Marche nordique image" class="img img-responsive">
 							</a>
 						</div>
-						<a href="{{ path('archery_index') }}" class="col-lg-6">
-							<div class="col-lg-12">
-								<img src="/assets/img/indexThumbnails/archery.jpg" class="img img-responsive" alt="">
-							</div>
-						</a>
+						<div class="activity col-lg-6">
+							<a href="" class="col-lg-12">
+								<h3>
+									Tir à l'arc
+								</h3>
+								<img src="/assets/img/indexThumbnails/archery.jpg" alt="Marche nordique image" class="img img-responsive">
+							</a>
+						</div>
 					</div>
 					<div class="row">
-						<a href="{{ path('nordWalking_index') }}" class="col-lg-6">
-							<div class="col-lg-12">
-								<img src="/assets/img/indexThumbnails/nordWalking.jpg" class="img img-responsive" alt="">
-							</div>
-						</a>
-						<a href="{{ path('tableTennis_index') }}" class="col-lg-6">
-							<div class="col-lg-12">
-								<img src="/assets/img/indexThumbnails/tableTennis.jpg" class="img img-responsive" alt="">
-							</div>
-						</a>
+						<div class="activity col-lg-6">
+							<a href="" class="col-lg-12">
+								<h3>
+									Marche nordique
+								</h3>
+								<img src="/assets/img/indexThumbnails/nordWalking.jpg" alt="Marche nordique image" class="img img-responsive">
+							</a>
+						</div>
+						<div class="activity col-lg-6">
+							<a href="" class="col-lg-12">
+								<h3>
+									Tennis de table
+								</h3>
+								<img src="/assets/img/indexThumbnails/tableTennis.jpg" alt="Marche nordique image" class="img img-responsive">
+							</a>
+						</div>
 					</div>
 				</div>
-				<div id="activities" class="col-lg-4">
+				<div class="col-lg-4">
 					<h2>
 						activités
 					</h2>
-					<div class="row">			
-						<a href="{{ path('teens_index') }}" class="col-lg-12">
-							<div class="col-lg-12">
-								<img src="/assets/img/indexThumbnails/foyer.jpg"class="img img-responsive" alt="">
-							</div>
-						</a>
+					<div class="row">
+						<div class="activity col-lg-12">
+							<a href="" class="col-lg-12">
+								<h3>
+									Point ados
+								</h3>
+								<img src="/assets/img/indexThumbnails/foyer.jpg" alt="Marche nordique image" class="img img-responsive">
+							</a>
+						</div>
 					</div>
-					<div class="row">	
-						<a href="{{ path('relaxation_index') }}" class="col-lg-12">
-							<div class="col-lg-12">
-								<img src="/assets/img/indexThumbnails/happyRelax.jpg"class="img img-responsive" alt="">
-							</div>
-						</a>
-					</div>					
+					<div class="row">
+						<div class="activity col-lg-12">
+							<a href="" class="col-lg-12">
+								<h3>
+									Relaxation
+								</h3>
+								<img src="/assets/img/indexThumbnails/happyRelax.jpg" alt="Marche nordique image" class="img img-responsive">
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
+	
 		</section>
+		
 
 		<script>
 			var isNewsOpen = false;
@@ -141,12 +156,6 @@
 
 				isNewsOpen = !isNewsOpen;
 			});
-
-
-            $(document).ready(function($) 
-            {
-                new TextOnPicture(".activityBlock");        
-            });
 		</script>
 	</body>
 </html>

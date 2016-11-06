@@ -81,90 +81,35 @@ body, html
 	}
 }
 
-
-#sportsSections, #activities
+#sections
 {
 	h2
 	{
 		font-variant: small-caps;
+		font-weight: bold;
+		font-size: 3em;
 	}
+
+	h3
+	{
+		font-size: 2em;
+		background-color: rgba(20, 20, 20, 0.9);
+		color: white;
+		text-shadow: 2px 2px 3px black;
+	} 
 
 	.row
 	{
-		margin-bottom: 20px;
-	}
-}
+		margin-bottom: 1%;
 
-a.activityBlock
-{
-	div
-	{
-		background-color: rgba(88, 230, 255, 0.6);
-		color: black;
-
-
-		h2
+		& .activity>a>*
 		{
-			text-align: center!important;
+			transition: all 0.3s linear;
+		}
+
+		& .activity>a:hover>*
+		{
+			box-shadow: 2px 2px 3px 1px black;
 		}
 	}
-
-	img
-	{
-		
-	}
 }
-// body
-// {
-// 	&#index 
-// 	{		
-// 		background-image: url("../../assets/img/backgroundPatern.png");
-// 		background-color: rgb(28, 242, 235);
-// 		background-blend-mode: multiply;
-
-// 		.headContainer
-// 		{
-// 			text-align: center;
-// 			min-height: @titleHeight;
-
-// 			h1
-// 			{
-// 				font-size: 3em;
-// 				margin-top: 0px;
-// 			}
-// 		}
-
-// 		div.bodyContainer
-// 		{
-// 			@radiusSize: 60px;
-// 			text-align: center;
-// 			margin-bottom: 5px;
-
-
-// 			a.activityBlock
-// 			{
-// 				div
-// 				{
-// 					background-color: rgba(88, 230, 255, 0.6);
-// 					color: black;
-// 					width: 100%;
-
-// 					border-top-left-radius: @radiusSize;
-// 					border-top-right-radius: @radiusSize;
-
-// 					h2
-// 					{
-// 						text-align: center;
-// 					}
-// 				}
-
-// 				img
-// 				{
-// 					border-radius: @radiusSize;
-// 					height: 30vh;
-// 					margin: auto;
-// 				}
-// 			}
-// 		}
-// 	}
-// }

@@ -1,76 +1,81 @@
-{% extends '/sections/_shared/global.layout.html.twig' %}
+{% extends '/sections/hiking/_shared/layout.html.twig' %}
 
-{% block custom_css %}
-	<link rel="stylesheet" type="text/css" href="/assets/css/sections.css">
-{% endblock %}
+{% block page_title %}Randonnée pédestre{% endblock %}
 
-{% block navbar %}
-    {% embed '/sections/hiking/_shared/navbar.partial.html.twig' %}
-        {% block navbar_logo %}
-			<img class="img img-responsive" src="/assets/img/hiking/logo.png" alt="logo du site">
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
-
-{% block bodyId %}hiking{% endblock %}
-
-{% block content %}
-<div id="header" class="row">
+{% block hiking_content %}
+<section id="banner" class="row">
 	<h1>
 		Je marche donc je suis !
 	</h1>
-	<p>
+	<h3>
 		Venez marcher avec nous, un dimanche par mois
-	</p>
-</div>
+	</h3>
+</section>
 <div class="row">
-	<div class="firstRow col-lg-10 col-lg-offset-1">
-		<div id="left" class="container col-lg-5">
-			<div id="currentAnnouncement">
-				<div style="position: absolute; top:25px;right:15px">
-					<a href="_blank">
-						<span class="glyphicon glyphicon-th-list"></span> Archives
-					</a>
+	<div class="newsAndInfo col-lg-10 col-lg-offset-1">
+		<div class="container col-lg-5">
+			<form id="contactForm" class="text-left">
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="row">
+						<div class="col-lg-6">
+							<label class="ccontrol-label" for="lastName">
+								Nom :
+							</label>
+						</div>
+						<div class="col-lg-6">
+							<label class="ccontrol-label" for="firstName">
+								Prénom :
+							</label>
+						</div>	
+					</div>  
+					<div class="row">
+						<div class="col-lg-6">
+							<input id="lastName" name="lastName" placeholder="" class="form-control input-md" required="" type="text">	
+						</div>
+						<div class="col-lg-6">
+							<input id="firstName" name="firstName" placeholder="" class="form-control input-md" required="" type="text">
+						</div>	
+					</div>
 				</div>
-				<h2>
-					Actualités
-				</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat illum, cum hic aspernatur suscipit voluptatem eos alias? Nemo magnam odit enim ducimus esse iure, laborum minus quae, nisi dignissimos tempore? Adipisci id asperiores, fugiat itaque! Quaerat aspernatur, nisi distinctio, dolores, incidunt optio magni deserunt atque ad earum veniam explicabo porro minima, officiis? Alias eum quod odio, excepturi aliquid possimus eius!
-				</p>
-				<p>
-					Omnis totam est, quas eum nostrum architecto, eius reprehenderit esse nemo, laboriosam ex consequuntur quaerat? Labore, ea inventore? Reprehenderit nihil illo eos animi impedit ipsa, suscipit iusto rerum a architecto!
-				</p>
-				<p>
-					Adipisci id asperiores, fugiat itaque! Quaerat aspernatur, nisi distinctio, dolores, incidunt optio magni deserunt atque ad earum veniam explicabo porro minima, officiis? Alias eum quod odio, excepturi aliquid possimus eius!
-				</p>
-				<p>
-					Omnis totam est, quas eum nostrum architecto, eius reprehenderit esse nemo, laboriosam ex consequuntur quaerat? Labore, ea inventore? Reprehenderit nihil illo eos animi impedit ipsa, suscipit iusto rerum a architecto! Adipisci id asperiores, fugiat itaque! Quaerat aspernatur, nisi distinctio, dolores, incidunt optio magni deserunt atque ad earum veniam explicabo porro minima, officiis? Alias eum quod odio, excepturi aliquid possimus eius! Omnis totam est, quas eum nostrum architecto, eius reprehenderit esse nemo, laboriosam ex consequuntur quaerat? Labore, ea inventore? Reprehenderit nihil illo eos animi impedit ipsa, suscipit iusto rerum a architecto!
-				</p>
-				<p>
-					Adipisci id asperiores, fugiat itaque! Quaerat aspernatur, nisi distinctio, dolores, incidunt optio magni deserunt atque ad earum veniam explicabo porro minima, officiis? Alias eum quod odio, excepturi aliquid possimus eius!
-				</p>
-				<p>
-					Omnis totam est, quas eum nostrum architecto, eius reprehenderit esse nemo, laboriosam ex consequuntur quaerat? Labore, ea inventore? Reprehenderit nihil illo eos animi impedit ipsa, suscipit iusto rerum a architecto!
-				</p>
-			</div>
-			<button id="showCompleteAnnoucement" class="btn btn-info col-lg-12">
-				Lire le reste
-			</button>
+
+				<!-- Text input-->
+				<div id="emailBlock" class="form-group">
+					<label class="control-label" for="email">
+						E-mail :
+					</label>
+					<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="text">				
+				</div>
+
+				<!-- Textarea -->
+				<div class="form-group">
+					<label class="control-label" for="message">
+						Message :
+					</label>
+					<textarea class="form-control" id="message" name="message"></textarea>
+				</div>
+
+				<input name="section[]" id="section-1" value="hiking" type="checkbox" checked="checked" style="display:none">
+
+				<!-- Button -->
+				<div class="form-group">
+					<button id="send" name="send" class="btn btn-success center-block">
+						Envoyer
+					</button>
+				</div>
+			</form>
 		</div>
 		<div id="centerLogo" class="container col-lg-2">
 			<img class="img img-responsive" src="/assets/img/hiking/centerLogo.png" alt="logo du site">
 		</div>
-		<div id="right" class="container col-lg-5">
-			<div id="joinAndContactBlock" class="col-lg-12">
+		<div id="infoAndContact" class="container col-lg-5">
+			<div id="infoAndContactBlock" class="col-lg-12">
 				<h2>
 					Adhésion
 				</h2>
-				Venez marcher avec nous !
-				<br />
-				Imprimez, remplissez et remettez-nous le <a href="_blank">formulaire d'adhésion</a> 
+				Imprimez, remplissez et remettez-nous le <a href="/assets/ressources/ficheInscription.pdf" target="blank">formulaire&nbsp;d'adhésion</a> 
 				<br /> 
-				après avoir pris connaissance du <a href="_blank">règlement intérieur</a>
+				après avoir pris connaissance du <a href="{{ path("hiking_rules") }}">règlement&nbsp;intérieur</a>
 				<br />
 				<h2>
 					À joindre
@@ -85,377 +90,16 @@
 				<h2>
 					Contact
 				</h2>
-				Pour contacter les animateurs :
-				<br />
 				<a href="mailto:sectionrando.frponteillanyls@gmail.com">sectionrando.frponteillanyls@gmail.com</a>
 				<br />
-				06.50.45.05.64
-				<br />
-				<br />
-				<button class="contactFormBtn btn btn-info col-xs-12">
-					Formulaire de contact
-				</button>				
+				06.50.45.05.64				
 			</div>
-			<div id="contactPanel">
-					<button class="contactFormBtn btn btn-info col-xs-12">
-						Cacher le formulaire de contact
-					</button>
-					<form id="contactForm" class="">
-							<!-- Text input-->
-							<div class="form-group">
-								<div class="row">
-									<div class="col-lg-6">
-									    <label class="ccontrol-label" for="lastName">
-								    		Nom
-										</label>  
-									</div>
-									<div class="col-lg-6">
-									    <label class="ccontrol-label" for="firstName">
-								    		Prénom
-										</label>  
-									</div>	
-								</div>  
-								<div class="row">
-									<div class="col-lg-6">
-										<input id="lastName" name="lastName" placeholder="" class="form-control input-md" required="" type="text">	
-									</div>
-									<div class="col-lg-6">
-										<input id="firstName" name="firstName" placeholder="" class="form-control input-md" required="" type="text">
-									</div>	
-								</div>  
-							</div>
-
-							<!-- Text input-->
-							<div id="emailBlock" class="form-group">
-							    <label class="control-label" for="email">
-						    		E-mail
-								</label>    
-						    	<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="text">				
-							</div>
-
-							<!-- Textarea -->
-							<div class="form-group">
-							    <label class="control-label" for="message">
-							    	Message
-								</label>
-						        <textarea class="form-control" id="message" name="message"></textarea>
-							</div>
-
-							<input name="section[]" id="section-1" value="hiking" type="checkbox" checked="checked" style="display:none">
-
-							<!-- Button -->
-							<div class="form-group">
-							    <button id="send" name="send" class="btn btn-success center-block">
-							    	Envoyer
-							    </button>
-							</div>
-					</form>
-				</div>
 		</div>
 	</div>
 </div>
-<div id="footer" class="row glass">
-	<h2>
-		Evènements à venir
-	</h2>
-	<div class="col-lg-10 col-lg-offset-1">		
-		<div class="row line">
-			<div class="col-lg-4 col-lg-offset-1">			
-				<div class="flip-container col-lg-12" ontouchstart="this.classList.toggle('hover');">
-					<div class="flipper col-lg-12">
-						<div class="front col-lg-12">
-							<div class="row">
-								<div class="date col-lg-6">
-									<span class="glyphicon glyphicon-calendar"></span> 26/08/2016
-								</div>
-								<div class="details col-lg-6">
-									Détails <span class="glyphicon glyphicon-share-alt"></span>
-								</div>
-							</div>
-							<div class="title col-lg-12">
-								Rando des mamans patates
-							</div>
-							<div class="text col-lg-12">
-								Magnifique paysage, des arbres à sous mais genre, PARTOUT. Pis des licornes. Plein de licornes ! ...
-							</div>
-						</div>
-						<div class="back col-lg-12">
-							<div class="row">
-								<div class="timeLeft col-lg-6">
-									<span class="label label-default">18/30</span> Inscrits
-								</div>
-								<div class="difficulty col-lg-6">
-									Niveau <span class="label label-danger">3</span>
-								</div>
-							</div>
-							<div class="details btn btn-default col-lg-10 col-lg-offset-1">
-								Voir les détails
-							</div>
-							<div class="entryUntil col-lg-12">
-								Fermeture inscriptions 24/08/2016 (30j)
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-lg-offset-2">			
-				<div class="flip-container col-lg-12" ontouchstart="this.classList.toggle('hover');">
-					<div class="flipper col-lg-12">
-						<div class="front col-lg-12">
-							<div class="row">
-								<div class="date col-lg-6">
-									<span class="glyphicon glyphicon-calendar"></span> 15/09/2016
-								</div>
-								<div class="details col-lg-6">
-									Détails <span class="glyphicon glyphicon-share-alt"></span>
-								</div>
-							</div>
-							<div class="title col-lg-12">
-								Randonnée de patates-aspirateurs
-							</div>
-							<div class="text col-lg-12">
-								Chais quoi ecrire ici. tant pis ...
-							</div>
-						</div>
-						<div class="back col-lg-12">
-							<div class="row">
-								<div class="timeLeft col-lg-6">
-									<span class="label label-default">12/24</span> Inscrits
-								</div>
-								<div class="difficulty col-lg-6">
-									Niveau <span class="label label-success">1</span>
-								</div>
-							</div>
-							<div class="details btn btn-default col-lg-10 col-lg-offset-1">
-								Voir les détails
-							</div>
-							<div class="entryUntil col-lg-12">
-								Fermeture inscriptions 12/09/2016 (5j)
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row line">			
-			<div class="col-lg-4 col-lg-offset-1">			
-				<div class="flip-container col-lg-12" ontouchstart="this.classList.toggle('hover');">
-					<div class="flipper col-lg-12">
-						<div class="front col-lg-12">
-							<div class="row">
-								<div class="date col-lg-6">
-									<span class="glyphicon glyphicon-calendar"></span> 45/13/2023
-								</div>
-								<div class="details col-lg-6">
-									Détails <span class="glyphicon glyphicon-share-alt"></span>
-								</div>
-							</div>
-							<div class="title col-lg-12">
-								Rando des zoulous volants
-							</div>
-							<div class="text col-lg-12">
-								Ben c'est le turfu. Voitures volantes et objets parlants, c karaiman flipan ... (tahu ca ryme !)
-							</div>
-						</div>
-						<div class="back col-lg-12">
-							<div class="row">
-								<div class="timeLeft col-lg-6">
-									<span class="label label-default">53/30</span> Inscrits
-								</div>
-								<div class="difficulty col-lg-6">
-									Niveau <span class="label label-warning">2</span>
-								</div>
-							</div>
-							<div class="details btn btn-default col-lg-10 col-lg-offset-1">
-								Voir les détails
-							</div>
-							<div class="entryUntil col-lg-12">
-								Fermeture inscriptions 48/08/2016 (-21j)
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-lg-offset-2">			
-				<div class="flip-container col-lg-12" ontouchstart="this.classList.toggle('hover');">
-					<div class="flipper col-lg-12">
-						<div class="front col-lg-12">
-							<div class="row">
-								<div class="date col-lg-6">
-									<span class="glyphicon glyphicon-calendar"></span> 26/08/2016
-								</div>
-								<div class="details col-lg-6">
-									Détails <span class="glyphicon glyphicon-share-alt"></span>
-								</div>
-							</div>
-							<div class="title col-lg-12">
-								Rando des mamans patates
-							</div>
-							<div class="text col-lg-12">
-								Magnifique paysage, des arbres à sous mais genre, PARTOUT. Pis des licornes. Plein de licornes ! ...
-							</div>
-						</div>
-						<div class="back col-lg-12">
-							<div class="row">
-								<div class="timeLeft col-lg-6">
-									<span class="label label-default">18/30</span> Inscrits
-								</div>
-								<div class="difficulty col-lg-6">
-									Niveau <span class="label label-danger">3</span>
-								</div>
-							</div>
-							<div class="details btn btn-default col-lg-10 col-lg-offset-1">
-								Voir les détails
-							</div>
-							<div class="entryUntil col-lg-12">
-								Fermeture inscriptions 24/08/2016 (30j)
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>				
-	</div>
-</div>
-{% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}
+<script type="text/javascript" src="/assets/js/ContactFormManager.class.js"></script>
 <script>
-	jQuery(document).ready(function($) 
-	{
-		$('#currentAnnouncement').css('max-height', parseInt($('#joinAndContactBlock').css('height')) - parseInt($('.contactFormBtn').css('height')) + "px");
-		if($('#currentAnnouncement')[0].scrollHeight >  $('#currentAnnouncement').innerHeight())
-		{
-			$('#showCompleteAnnoucement').show();
-		}
-
-	});
-
-	$('.contactFormBtn').click(function()
-		{
-			$('#contactPanel').toggleClass('in');
-		});
-</script>
-
-
-<script>
-
-	/*====================================
-	=            Contact form            =
-	====================================*/
-			var ContactFormManager = function(selector)
-			{
-				/*==================================
-				=            Properties            =
-				==================================*/				
-					/*----------  Public  ----------*/
-					
-					/*----------  Private  ----------*/		
-					var form = $(selector);
-					var serializedForm = null;
-					var checkboxes = 
-					{
-						container: form.find('#sectionsCheckboxes'),
-						inputs: form.find('#sectionsCheckboxes:checkbox')
-					};
-
-					var email = 
-					{
-						container: form.find('#emailBlock'),
-						input: form.find('#emailBlock input')
-					};
-				
-				/*=====  End of Properties  ======*/
-				
-				/*===============================
-				=            Methods            =
-				===============================*/				
-					/*----------  Public  ----------*/
-
-					
-					/*----------  Private  ----------*/	
-					var bindEvents = function()
-					{
-						form.on('submit', function(e)
-						{
-							e.preventDefault();
-
-							console.log(validate());
-							if(validate())
-								submit();
-						});
-
-					};
-
-					var validate = function()
-					{
-						/*=============================
-						=            Email            =
-						=============================*/
-						
-						var emailPattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
-		    			
-		    			var isEmailValid = emailPattern.test(email.input.val());
-
-										
-		    			if(isEmailValid)  	
-		    				email.container.removeClass('has-error');
-
-		    			else
-							email.container.addClass('has-error');
-						
-						/*=====  End of Email  ======*/
-
-						return isEmailValid;
-					};
-
-					var submit = function()
-					{						
-
-						//Save the form as a serialied object
-						serializedForm = form.serialize();
-
-						changeFormContent($('#contactLoader'), function()
-						{
-							//Sends form using AJAX
-							$.ajax(
-							{
-								type: "POST",
-								url: "{{path('ajax_contact')}}",
-								data: serializedForm,
-								success: function(data)
-								{
-									changeFormContent(data, function(){});
-								}
-							});
-						});	
-					};	
-
-					var changeFormContent = function(newContent, callBack)
-					{
-						//Hide the form
-						form.slideUp('fast', function()
-						{
-							//Replace the form content with the provided content
-							form.html(newContent);
-
-							//Show the animation
-							form.slideDown('slow', callBack());
-						});
-					};
-
-				
-				/*=====  End of Methods  ======*/
-
-				/*===================================
-				=            Constructor            =
-				===================================*/
-				
-				bindEvents();
-				
-				/*=====  End of Constructor  ======*/				
-			}
-
-			var formManager = new ContactFormManager('#contactForm');
-	/*=====  End of Contact form  ======*/	
-
+	/*----------  Start the contact form manager  ----------*/
+	var formManager = new ContactFormManager('#contactForm', "{{path('ajax_contact')}}");
 </script>
 {% endblock %}

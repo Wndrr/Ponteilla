@@ -1,58 +1,136 @@
-@pageHeight: 100vh;
-@titleHeight: 6vh;
-@bodyHeight: (@pageHeight - @titleHeight);
-
-body
+h1, h2, h3
 {
-	&#index 
-	{		
-		background-image: url("../../assets/img/backgroundPatern.png");
-		background-color: rgb(28, 242, 235);
-		background-blend-mode: multiply;
+	text-align: center;
+}
 
-		.headContainer
+body, html
+{
+	height: 100%;
+	width: 100%;
+}
+
+#header
+{
+	background-image: url('../../assets/img/headerBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+
+	border-bottom: 6px groove grey;
+	padding-bottom: 2%;
+
+	h1
+	{
+		font-variant: small-caps;
+		margin:0;
+		padding-top: 8%;
+		font-size: 5em;
+
+		color: white;
+		text-shadow: black 0 0 12px;
+
+		font-weight: bold;
+	}
+	#news, #contact
+	{
+		padding: 0.3%!important;
+	}
+
+	#contact
+	{
+
+		#head
 		{
-			text-align: center;
-			min-height: @titleHeight;
+			font-size: 1.8em;
+			text-align: center!important;
+		}
 
-			h1
+		#text
+		{
+			text-indent: 30px;
+		}
+	}
+
+
+
+	.opened
+	{
+		position: absolute;
+		background-color: rgba(20, 20, 20, 1);
+	}
+
+	#headerText
+	{
+		margin-top: 3%;
+
+		& > div > div
+		{
+			margin-top: 1.5%;
+			background-color: rgba(20, 20, 20, 0.9);
+			color: white;
+			padding: 1.5%;
+			text-align: justify;
+
+			transition: background-color 1s ease-in-out;
+
+			&#news
 			{
-				font-size: 3em;
-				margin-top: 0px;
+				z-index: 10;
+				
+				#newsContent
+				{
+					display: none;
+				}
+
+				#toggleNews
+				{
+					color: aqua;
+					cursor: pointer;
+					text-align: center;
+				}
+			}
+
+			&.opened
+			{
+				background-color: rgba(20, 20, 20, 1);
 			}
 		}
 
-		div.bodyContainer
+		transition: all 1s linear;
+
+
+	}
+}
+
+#sections
+{
+	h2
+	{
+		font-variant: small-caps;
+		font-weight: bold;
+		font-size: 3em;
+	}
+
+	h3
+	{
+		font-size: 2em;
+		background-color: rgba(20, 20, 20, 0.9);
+		color: white;
+		text-shadow: 2px 2px 3px black;
+	} 
+
+	.row
+	{
+		margin-bottom: 1%;
+
+		& .activity>a>*
 		{
-			@radiusSize: 60px;
-			text-align: center;
-			margin-bottom: 5px;
+			transition: all 0.3s linear;
+		}
 
-
-			a.activityBlock
-			{
-				div
-				{
-					background-color: rgba(88, 230, 255, 0.6);
-					color: black;
-					width: 100%;
-
-					border-top-left-radius: @radiusSize;
-					border-top-right-radius: @radiusSize;
-
-					h2
-					{
-						text-align: center;
-					}
-				}
-
-				img
-				{
-					border-radius: @radiusSize;
-					height: 30vh;
-					margin: auto;
-				}
-			}
+		& .activity>a:hover>*
+		{
+			box-shadow: 2px 2px 3px 1px black;
 		}
 	}
 }

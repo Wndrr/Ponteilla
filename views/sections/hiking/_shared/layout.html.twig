@@ -1,0 +1,37 @@
+{% extends '/sections/_shared/global.layout.html.twig' %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/hiking.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/hiking/_shared/headerBar.partial.html.twig' %}
+        {% block navbar_logo %}
+            <img class="img img-responsive" src="/assets/img/hiking/logo.png" alt="logo du site">
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+	<div id="content">
+	    {% block hiking_content %}
+	        
+	    {% endblock %}
+	</div>	
+    {% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}    
+	{% if app.session.flashbag.peekAll()|length > 0 %}
+		<div class="panel panel-danger">
+			{% for error in app.session.getFlashBag.get('notify') %}
+				<script>
+					$.notify(
+					{
+					    message: '{{ error }}' 
+					},
+					{
+					    type: 'success'
+					});
+				</script>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}

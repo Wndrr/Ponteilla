@@ -18,23 +18,27 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
     })
     ->bind('base_index');
 
+    /*----------  Mentions légales  ----------*/
+    $app->get('/legals', function() use($app)
+    {
+        return $app['twig']->render('legals.html.twig', array());
+    })
+    ->bind('base_mentionsLegales');
+
     /*----------  Handles errors  ----------*/
     $app->error(function (\Exception $e, Request $request, $code) use ($app)
     {
         if($app['debug']) 
             return;
 
-        // 404.html, or 40x.html, or 4xx.html, or error.html
-        $templates = array(
-            'errors/'.$code.'.html.twig',
-            'errors/'.substr($code, 0, 2).'x.html.twig',
-            'errors/'.substr($code, 0, 1).'xx.html.twig',
-            'errors/default.html.twig',
-        );
+        $rtrnParams = array('lastPage' => $referer = $request->headers->get('referer'));
 
-        return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
+        if($code == 404)
+            return $app['twig']->render('errors/404.html.twig', $rtrnParams);
+
+        if($code == 500)
+            return $app['twig']->render('errors/500.html.twig', $rtrnParams);
     });
-
 
 /*=====  End of Routes  ======*/
 

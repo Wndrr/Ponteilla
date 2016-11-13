@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Silex base architecture
+            {% block page_title %}page.title{% endblock %}
         </title>
 
         {% block lib_css %}
@@ -20,6 +20,8 @@
             <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
             <!-- Bootstrap 3 -->
             <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+            <!-- Bootstrap notify -->
+            <script src="/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.js" type="text/javascript" charset="utf-8"></script>
 
         {% endblock %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +29,7 @@
     <body id="{% block bodyId %}base{% endblock %}" class="container-fluid">
 
         {% block navbar %}{% endblock %}
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock %}        
+        {% include '/sections/_shared/footerBar.partial.html.twig' %}    
     </body>
 </html>

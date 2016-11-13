@@ -1,0 +1,43 @@
+{% extends '/sections/_shared/global.layout.html.twig' %}
+
+{% block page_title %}Marche nordique{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/nordWalking.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/_shared/navbar.partial.html.twig' %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block bodyId %}legals{% endblock %}
+
+{% block content %}
+    <h2>
+        Mentions légales
+    </h2>
+    <div class="row">  
+        <div class="col-lg-6">
+            <h2>
+                Editeur du site
+            </h2>
+            VIALES Mathieu <br />
+            29 Rue Brouardel, <br />
+            31000 TOULOUSE <br />
+            France <br />
+            Email: <a href="mailto:haupe@hotmail.fr">haupe@hotmail.fr</a>
+        </div> 
+        <div class="col-lg-6">
+            <h2>
+                Hébergeur du site
+            </h2>
+            OVH <br />
+            2 rue Kellermann <br />
+            59100 Roubaix <br />
+            France <br />
+            email: <a href="mailto:cil@ovh.net">cil@ovh.net</a>
+        </div> 
+    </div>
+{% endblock %}

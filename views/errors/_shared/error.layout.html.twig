@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Erreur
+        </title>
+
+        {% block lib_css %}
+
+            <!-- Bootstrap 3 -->
+            <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+            <!-- Custom -->
+            <link href="/assets/css/errors.css" rel="stylesheet">
+
+        {% endblock %}
+
+        {% block custom_css %}{% endblock %}
+
+        {% block lib_js %}
+
+            <!-- Jqueyr -->
+            <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+            <!-- Bootstrap 3 -->
+            <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="container-fluid">
+        <div class="error panel {% block errorCodeRange %}{% endblock %} col-lg-12">    
+            <div class="row">
+                <a href="{{ path("hiking_index") }}" class="btn btn-default col-lg-3 col-lg-offset-2">
+                    Retour à l'accueil
+                </a>
+                <a href="{{lastPage}}" class="btn btn-default col-lg-3 col-lg-offset-2">
+                    Retour à la page précédente
+                </a>
+            </div>
+            <br>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

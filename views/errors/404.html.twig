@@ -1,5 +1,9 @@
-{% extends "layout.html.twig" %}
-
+{% extends '/errors/_shared/error.layout.html.twig' %}
+{% block errorCodeRange %}
+    range4xx
+{% endblock %}
 {% block content %}
-    Page not found.
+	<h1>
+		Erreur 404 - Page introuvable
+	</h1>
 {% endblock %}

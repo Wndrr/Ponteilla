@@ -1,0 +1,84 @@
+@import '../../bower_components/components-font-awesome/css/font-awesome.css';
+
+/*============================
+=            Menu            =
+============================*/
+
+	.navbar
+	{ 
+		/*----------  Tabs  ----------*/
+		ul li a 
+		{				
+			color: black !important;
+			font-size: 120%;
+			background-color: #F8F8F8;
+			z-index: 10;
+		}
+
+		/*----------  Logo  ----------*/
+		.navbar-brand
+		{
+			max-height: 50px;
+		    overflow: visible;
+		    padding-top: 0;
+		    padding-bottom: 4px; 
+
+		    img
+		    {
+		    	max-height: 100%;
+		    	max-width: 100%;
+		    }
+		}
+	}
+
+/*=====  End of Menu  ======*/
+
+.dropdown-menu.fade 
+{
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.open > .dropdown-menu.fade 
+{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+html
+{
+	height: 100%;
+}
+
+body
+{
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 4%;
+}
+ 
+#footerNavbar
+{
+	background: url('/assets/img/hiking/footerPattern.png');
+	text-align: center;
+	font-size: 1.4em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+
+	a
+	{
+		color: black;
+		transition: background-color 0.3s ease-in-out, border-radius 1.2s ease-in-out;
+
+		&:hover
+		{
+			background-color: rgba(100, 100, 100, 0.4);
+			border-radius: 10px;
+		}
+	}
+}
+

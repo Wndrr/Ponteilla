@@ -13,10 +13,11 @@
 {% endblock %}
 
 {% block content %}
-    {% block hiking_content %}
-        
-    {% endblock %}
-
+	<div id="content">
+	    {% block hiking_content %}
+	        
+	    {% endblock %}
+	</div>	
     {% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}    
 	{% if app.session.flashbag.peekAll()|length > 0 %}
 		<div class="panel panel-danger">

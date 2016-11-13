@@ -18,6 +18,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
     })
     ->bind('base_index');
 
+    /*----------  Mentions légales  ----------*/
+    $app->get('/legals', function() use($app)
+    {
+        return $app['twig']->render('legals.html.twig', array());
+    })
+    ->bind('base_mentionsLegales');
+
     /*----------  Handles errors  ----------*/
     $app->error(function (\Exception $e, Request $request, $code) use ($app)
     {

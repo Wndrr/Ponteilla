@@ -29,6 +29,7 @@
     <body id="{% block bodyId %}base{% endblock %}" class="container-fluid">
 
         {% block navbar %}{% endblock %}
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock %}        
+        {% include '/sections/_shared/footerBar.partial.html.twig' %}    
     </body>
 </html>

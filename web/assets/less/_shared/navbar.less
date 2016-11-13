@@ -45,3 +45,40 @@
   pointer-events: auto;
   opacity: 1;
 }
+
+html
+{
+	height: 100%;
+}
+
+body
+{
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 4%;
+}
+ 
+#footerNavbar
+{
+	background: url('/assets/img/hiking/footerPattern.png');
+	text-align: center;
+	font-size: 1.4em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+
+	a
+	{
+		color: black;
+		transition: background-color 0.3s ease-in-out, border-radius 1.2s ease-in-out;
+
+		&:hover
+		{
+			background-color: rgba(100, 100, 100, 0.4);
+			border-radius: 10px;
+		}
+	}
+}
+

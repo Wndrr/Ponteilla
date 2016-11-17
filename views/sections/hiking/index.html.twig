@@ -11,43 +11,32 @@
 		Venez marcher avec nous, un dimanche par mois
 	</h3>
 </section>
-<div class="row">
-	<div class="newsAndInfo col-lg-10 col-lg-offset-1">
-		<div class="container col-lg-5">
+	<div class="newsAndInfo col-lg-10 col-lg-offset-1 col-md-12 col-xs-12">
+		<div class="col-md-5 col-xs-12">
+			<h2>
+				Contact
+			</h2>
 			<form id="contactForm" class="text-left">
-				<!-- Text input-->
 				<div class="form-group">
-					<div class="row">
-						<div class="col-lg-6">
-							<label class="ccontrol-label" for="lastName">
-								Nom :
-							</label>
-						</div>
-						<div class="col-lg-6">
-							<label class="ccontrol-label" for="firstName">
-								Prénom :
-							</label>
-						</div>	
-					</div>  
-					<div class="row">
-						<div class="col-lg-6">
-							<input id="lastName" name="lastName" placeholder="" class="form-control input-md" required="" type="text">	
-						</div>
-						<div class="col-lg-6">
-							<input id="firstName" name="firstName" placeholder="" class="form-control input-md" required="" type="text">
-						</div>	
-					</div>
+					<label class="control-label" for="lastName">
+						Nom :
+					</label>
+					<input id="lastName" name="lastName" placeholder="" class="form-control" required="" type="text">	
 				</div>
+				<div class="form-group">
+					<label class="control-label" for="firstName">
+						Prénom :
+					</label>
+					<input id="firstName" name="firstName" placeholder="" class="form-control" required="" type="text">
+				</div>	
 
-				<!-- Text input-->
 				<div id="emailBlock" class="form-group">
 					<label class="control-label" for="email">
 						E-mail :
 					</label>
-					<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="text">				
+					<input id="email" name="email" placeholder="" class="form-control" required="" type="text">				
 				</div>
 
-				<!-- Textarea -->
 				<div class="form-group">
 					<label class="control-label" for="message">
 						Message :
@@ -57,7 +46,6 @@
 
 				<input name="section[]" id="section-1" value="hiking" type="checkbox" checked="checked" style="display:none">
 
-				<!-- Button -->
 				<div class="form-group">
 					<button id="send" name="send" class="btn btn-danger center-block">
 						Envoyer
@@ -65,10 +53,10 @@
 				</div>
 			</form>
 		</div>
-		<div id="centerLogo" class="container col-lg-2">
+		<div id="centerLogo" class="hidden-sm hidden-xs col-md-2">
 			<img class="img img-responsive" src="/assets/img/hiking/centerLogo.png" alt="logo du site">
 		</div>
-		<div id="infoAndContact" class="container col-lg-5">
+		<div id="infoAndContact" class="col-md-5 col-xs-12">
 			<div id="infoAndContactBlock" class="col-lg-12">
 				<h2>
 					Adhésion
@@ -96,7 +84,6 @@
 			</div>
 		</div>
 	</div>
-</div>
 <script type="text/javascript" src="/assets/js/ContactFormManager.class.js"></script>
 <script>
 	/*----------  Start the contact form manager  ----------*/

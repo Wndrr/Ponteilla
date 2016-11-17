@@ -39,7 +39,6 @@
 						<p>
 							Convivialité,  échange,  partage, ambiance... Chacun amène son repas, ses couverts, ses boissons... Prévoir des mets festifs, ce n'est pas un pique nique, il est fortement recommandé de partager, faire découvrir, échanger.
 						</p>
-						<span id="newsContent"> 
 						<p>
 							Inscription&nbsp;:&nbsp;10 € adhérents foyer rural / 15 € pour les non adhérents / 5 € pour les enfants de 6 à 18 ans, ceci pour couvrir les frais de sono, d'animation, les droits sacem, les cotillons, le ménage de la salle.
 						</p>
@@ -47,7 +46,7 @@
 							Pour réserver&nbsp;:&nbsp;foyerruralponteillanyls@gmail.com, liste avec nom / prénom / adresse / date de naissance / tél / mail.
 						</p>
 						<p>
-							Le paiement par chèque global ou individuel (ordre foyer rural) viendra valider la réservation à envoyer par courrier postal à foyer rural 31 av Pau Casals 66300 Ponteilla.</span> 
+							Le paiement par chèque global ou individuel (ordre foyer rural) viendra valider la réservation à envoyer par courrier postal à foyer rural 31 av Pau Casals 66300 Ponteilla. 
 						</p>
 					</div>
 				</div>
@@ -151,41 +150,5 @@
 				Mentions légales	
 			</a>
 		</div>
-
-
-		<script>
-			var isNewsOpen = false;
-
-			$('#toggleNews').on('click', function()
-			{
-				var newsContent = $('#newsContent');
-				var toggleLink = $('#toggleNews');
-				var news = $('#news');
-				var header = $('#header');
-
-				if(isNewsOpen)
-				{
-					toggleLink.html('[lire la suite]')
-					newsContent.slideUp('fast', function()
-					{
-						news.removeClass('opened');
-						header.css('min-height', 'auto');
-						header.css('max-height', 'auto');
-					});
-				}
-
-				else
-				{
-					header.css('min-height', header.css('height'));
-					header.css('max-height', header.css('height'));
-					newsContent.slideDown('fast');
-					news.addClass('opened');
-					toggleLink.html('[cacher la news]')
-
-				}
-
-				isNewsOpen = !isNewsOpen;
-			});
-		</script>  
 	</body>
 </html>

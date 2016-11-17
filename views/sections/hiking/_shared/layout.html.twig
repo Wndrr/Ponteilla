@@ -18,7 +18,7 @@
 	        
 	    {% endblock %}
 	</div>	
-    {% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}    
+      
 	{% if app.session.flashbag.peekAll()|length > 0 %}
 		<div class="panel panel-danger">
 			{% for error in app.session.getFlashBag.get('notify') %}
@@ -35,3 +35,5 @@
 		</div>
 	{% endif %}
 {% endblock %}
+
+{% block footerBar %}{% include '/sections/hiking/_shared/footerBar.partial.html.twig' %}  {% endblock %}   

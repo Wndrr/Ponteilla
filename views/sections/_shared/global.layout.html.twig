@@ -30,6 +30,7 @@
 
         {% block navbar %}{% endblock %}
         {% block content %}{% endblock %}        
-        {% include '/sections/_shared/footerBar.partial.html.twig' %}    
+        {% block footerBar %}{% include '/sections/_shared/footerBar.partial.html.twig' %}{% endblock %}        
+            
     </body>
 </html>

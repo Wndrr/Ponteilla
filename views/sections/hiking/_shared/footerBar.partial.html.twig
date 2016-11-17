@@ -1,29 +1,12 @@
-{% set isAdmin = false %}
-
-{% set colCount = 2 %}
-{% if isAdmin %}	
-	{% set colCount = colCount + 1 %}
-{% endif %}
-{% set colSize = 12 / colCount %}
-
 <div class="row" id="footerNavbar">
-		<a href="{{ path("base_mentionsLegales") }}" class="col-lg-{{colSize}}">
-			<span class="fa fa-file-text-o"></span>
-			Mentions légales	
-		</a>
-{# 		<a href="{{ path("hiking_wip") }}" class="col-lg-{{colSize}}">	
-			<span class="fa fa-link"></span>
-			Liens utiles	
-		</a> #}
-		<a href="{{ path("hiking_wip") }}" class="col-lg-{{colSize}}">
-			<a href="http://www.meteofrance.com/accueil" target="blank">météofrance</a>
-			<span class="fa fa-sun-o"></span>
-			<a href="http://www.meteociel.fr/" target="blank">météociel</a>	
-		</a>
-		{% if isAdmin %}
-			<a href="{{ path("hiking_wip") }}" class="col-lg-{{colSize}}">
-				<span class="glyphicon glyphicon-queen"></span>
-				Admin
-			</a>
-		{% endif %}
+	<a href="{{ path("base_mentionsLegales") }}" class="col-lg-4">
+		<span class="fa fa-file-text-o"></span>
+		Mentions légales	
+	</a>
+	<a href="http://www.meteofrance.com/accueil" target="blank" class="col-lg-4">
+		météofrance
+	</a>
+	<a href="http://www.meteociel.fr/" target="blank" class="col-lg-4">
+		météociel
+	</a>	
 </div>

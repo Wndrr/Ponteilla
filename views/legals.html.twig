@@ -8,6 +8,10 @@
 
 {% block navbar %}
     {% embed '/sections/_shared/navbar.partial.html.twig' %}
+        {% block navbar_logo %}
+            <!-- Todo: Change the logo / remove if not needed -->
+            <img id="navbar_logo" src="/assets/img/logo.png" alt="Foyer rural">
+        {% endblock %}
     {% endembed %}
 {% endblock %}
 
@@ -38,6 +42,15 @@
             59100 Roubaix <br />
             France <br />
             email: <a href="mailto:cil@ovh.net">cil@ovh.net</a>
+        </div> 
+        <div class="col-lg-6 col-lg-offset-3">
+            <h2>
+                Responsable rédaction
+            </h2>
+            Foyer rural de Ponteilla-Nyls <br />
+            31 avenue Pau Casalss <br />
+            66300 Ponteilla <br />
+            <a href="foyerruralponteillanyls@gmail.com">foyerruralponteillanyls@gmail.com</a>
         </div> 
     </div>
 {% endblock %}

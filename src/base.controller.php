@@ -14,7 +14,29 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
     /*----------  Global entry point  ----------*/
     $app->get('/', function () use ($app) 
     {
-        return $app['twig']->render('index.html.twig', array());
+
+        /*=======================================================
+        =            Build list of path for carousel            =
+        =======================================================*/
+                
+            $indexBackgroundPath = 'backgrounds/';
+
+            //List all files in carousel folder
+            $filesSystemPath = glob($app['path.system.images'] . $indexBackgroundPath . '{*}.{jpg,png,JPG,PNG}', GLOB_BRACE);
+            $filesWebPath = array();
+
+
+            //Convert system paths to web paths
+            foreach ($filesSystemPath as $key => $file)
+            {
+                $fileParts = explode("/", $file);
+                $filesWebPath[] = $app['path.web.images'] . $indexBackgroundPath . $fileParts[count($fileParts) - 1];
+            }
+            $selectedFile = rand(1, count($filesWebPath)) - 1;
+        
+        /*=====  End of Build list of path for carousel  ======*/
+
+        return $app['twig']->render('index.html.twig', array("backgroundImagePath" => $filesWebPath[$selectedFile]));
     })
     ->bind('base_index');
 

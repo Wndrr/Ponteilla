@@ -23,7 +23,7 @@ body, html
 	{
 		font-variant: small-caps;
 		margin:0;
-		padding-top: 8%;
+		padding-top: 1.5%;
 		font-size: 5em;
 
 		color: white;
@@ -34,6 +34,11 @@ body, html
 	#news, #contact
 	{
 		padding: 0.3%!important;
+
+		& :not(h3)
+		{
+			text-indent: 30px;
+		}			
 	}
 
 	#contact
@@ -43,11 +48,6 @@ body, html
 		{
 			font-size: 1.8em;
 			text-align: center!important;
-		}
-
-		#text
-		{
-			text-indent: 30px;
 		}
 	}
 
@@ -61,14 +61,13 @@ body, html
 
 	#headerText
 	{
-		margin-top: 3%;
 
 		& > div > div
 		{
 			margin-top: 1.5%;
 			background-color: rgba(20, 20, 20, 0.9);
 			color: white;
-			padding: 1.5%;
+			padding-bottom: 0;
 			text-align: justify;
 
 			transition: background-color 1s ease-in-out;
@@ -77,11 +76,6 @@ body, html
 			{
 				z-index: 10;
 				
-				#newsContent
-				{
-					display: none;
-				}
-
 				#toggleNews
 				{
 					color: aqua;

@@ -1,4 +1,4 @@
-{% extends '/sections/_shared/global.layout.html.twig' %}
+{% extends '/sections/_shared/global.twig' %}
 
 {% block page_title %}Point ados{% endblock %}
 
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block navbar %}
-    {% embed '/sections/_shared/navbar.partial.html.twig' %}
+    {% embed '/sections/_shared/navbar.twig' %}
         {% block navbar_logo %}
         	<!-- Todo: Change the logo / remove if not needed -->
 			<img id="navbar_logo" src="/assets/img/teens/logo.jpg" alt="Point ados">
@@ -23,7 +23,7 @@
 	</h1>
 	<div class="row">
 		<div id="picturesContainer" class="col-md-8 col-md-offset-2">
-			{% include '/sections/_shared/carousel.partial.html.twig' with carouselImagesPath %}
+			{% include '/sections/_shared/carousel.twig' with carouselImagesPath %}
 		</div>
 	</div>
 	<div id="textBlocksContainer">
@@ -67,7 +67,7 @@
 	<div id="contactBlock" class="row">		
 		<div class="col-md-6 col-md-offset-3">
 			<div id="contactBlock" class="col-md-12">
-				{% include '/sections/_shared/contactForm.partial.html.twig' %}
+				{% include '/sections/_shared/contactForm.twig' %}
 			</div>
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-{% extends '/sections/_shared/global.layout.html.twig' %}
+{% extends '/sections/_shared/global.twig' %}
 
 {% block page_title %}Tir à l'arc{% endblock %}
 
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block navbar %}
-    {% embed '/sections/_shared/navbar.partial.html.twig' %}
+    {% embed '/sections/_shared/navbar.twig' %}
         {% block navbar_logo %}
 			<img id="navbar_logo" src="/assets/img/archery/logo.jpg" alt="Tir à l'arc logo">
         {% endblock %}
@@ -22,7 +22,7 @@
 	</h1>
 	<div class="row">
 		<div id="picturesContainer" class="col-md-8 col-md-offset-2">
-			{% include '/sections/_shared/carousel.partial.html.twig' with carouselImagesPath %}
+			{% include '/sections/_shared/carousel.twig' with carouselImagesPath %}
 		</div>
 	</div>
 	<div id="textAndContactContainer">
@@ -41,7 +41,7 @@
 		</div>
 		<div class="col-md-6">
 			<div id="contactBlock" class="col-md-12">
-				{% include '/sections/_shared/contactForm.partial.html.twig' %}
+				{% include '/sections/_shared/contactForm.twig' %}
 			</div>
 		</div>
 	</div>

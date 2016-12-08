@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-16 23:12:01
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-09-22 13:04:30
+ * @Last Modified time: 2016-12-08 11:15:30
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +36,7 @@ $archery = $app['controllers_factory'];
 		
 		/*=====  End of Build list of path for carousel  ======*/
 
-	    return $app['twig']->render('sections/archery/index.html.twig', array("carouselImagesPath" => $filesWebPath));
+	    return $app['twig']->render('sections/archery/index.twig', array("carouselImagesPath" => $filesWebPath));
 	})
 	->bind('archery_index');
 

@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-11-29 16:21:11
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-12-07 16:15:03
+ * @Last Modified time: 2016-12-08 11:16:13
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -39,14 +39,14 @@ $mainController = $app['controllers_factory'];
         
         /*=====  End of Build list of path for carousel  ======*/
 
-        return $app['twig']->render('index.html.twig', array("backgroundImagePath" => $filesWebPath[$selectedFile]));
+        return $app['twig']->render('index.twig', array("backgroundImagePath" => $filesWebPath[$selectedFile]));
     })
     ->bind('base_index');
 
     /*----------  Mentions légales  ----------*/
     $mainController->get('/legals', function() use($app)
     {
-        return $app['twig']->render('legals.html.twig', array());
+        return $app['twig']->render('legals.twig', array());
     })
     ->bind('base_mentionsLegales');
 

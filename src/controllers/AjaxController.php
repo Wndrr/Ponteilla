@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-21 20:25:50
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-10-22 17:16:43
+ * @Last Modified time: 2016-12-08 11:24:20
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -85,7 +85,7 @@ $ajax = $app['controllers_factory'];
 	    if($mail->send()) 
 	    {
 			$app['log.contact']->addInfo('Contact email - success');
-			return $app['twig']->render('/sections/_shared/contactSuccess.partial.html.twig');	 
+			return $app['twig']->render('/sections/_shared/contactSuccess.twig');	 
 	    }
 
 		$app['log.contact']->addInfo('Contact email - fail');

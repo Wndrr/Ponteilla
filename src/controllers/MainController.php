@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-11-29 16:21:11
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-12-08 11:16:13
+ * @Last Modified time: 2016-12-08 13:41:22
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -42,6 +42,12 @@ $mainController = $app['controllers_factory'];
         return $app['twig']->render('index.twig', array("backgroundImagePath" => $filesWebPath[$selectedFile]));
     })
     ->bind('base_index');
+
+    $mainController->get('/contactInfo', function() use ($app)
+    {
+        return $app['twig']->render('contactInfo.twig');
+    })
+    ->bind('base_contactInfo');
 
     /*----------  Mentions légales  ----------*/
     $mainController->get('/legals', function() use($app)

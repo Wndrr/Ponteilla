@@ -3,7 +3,7 @@
  * @Author: Wndrr
  * @Date:   2016-09-27 13:04:31
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-11-01 16:35:34
+ * @Last Modified time: 2016-12-08 11:19:57
  */
 
 use Symfony\Component\HttpFoundation\Request;
@@ -18,14 +18,14 @@ $hiking = $app['controllers_factory'];
 	/*----------  Section index  ----------*/
 	$hiking->get('/', function() use($app)
 	{
-	    return $app['twig']->render('sections/hiking/index.html.twig');
+	    return $app['twig']->render('sections/hiking/index.twig');
 	})
 	->bind('hiking_index');
 
 	/*----------  Section index  ----------*/
 	$hiking->get('/rules', function() use($app)
 	{
-	    return $app['twig']->render('sections/hiking/rules.html.twig');
+	    return $app['twig']->render('sections/hiking/rules.twig');
 	})
 	->bind('hiking_rules');
 
@@ -36,7 +36,7 @@ $hiking = $app['controllers_factory'];
 		/*----------  Display loging view & errors  ----------*/
 		$hiking->get('/login', function(Request $request) use($app)
 		{
-			return $app['twig']->render('sections/hiking/user/login.html.twig', array
+			return $app['twig']->render('sections/hiking/user/login.twig', array
 			(
 		        'error'         => $app['security.last_error']($request),
 		        'last_username' => $app['session']->get('_security.last_username'),
@@ -47,7 +47,7 @@ $hiking = $app['controllers_factory'];
 		/*----------  Display registering view and errors  ----------*/
 		$hiking->get('/register', function(Request $request) use($app)
 		{
-			return $app['twig']->render('sections/hiking/user/register.html.twig', array());
+			return $app['twig']->render('sections/hiking/user/register.twig', array());
 		})
 		->bind('hiking_register');
 
@@ -90,7 +90,7 @@ $hiking = $app['controllers_factory'];
 	/*----------  Replaces every route that is not yet created  ----------*/
 	$hiking->get('/wip', function(Request $request) use ($app) 
 	{
-    	return $app['twig']->render('sections/hiking/dev/wip.html.twig');
+    	return $app['twig']->render('sections/hiking/dev/wip.twig');
 	})
 	->bind('hiking_wip');
 

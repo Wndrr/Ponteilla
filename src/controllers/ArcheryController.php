@@ -3,25 +3,25 @@
  * @Author: Wndrr
  * @Date:   2016-09-16 23:12:01
  * @Last Modified by:   Wndrr
- * @Last Modified time: 2016-09-22 13:04:07
+ * @Last Modified time: 2016-12-08 11:15:30
  */
 
 use Symfony\Component\HttpFoundation\Request;
 
-$teens = $app['controllers_factory'];
+$archery = $app['controllers_factory'];
 
 /*==============================
 =            Routes            =
 ==============================*/
 
 	/*----------  Section entry point  ----------*/
-	$teens->get('/', function() use($app)
+	$archery->get('/', function() use($app)
 	{
 		/*=======================================================
 		=            Build list of path for carousel            =
 		=======================================================*/
 				
-			$carouselPath = 'teens/carousel/';
+			$carouselPath = 'archery/carousel/';
 
 			//List all files in carousel folder
 			$filesSystemPath = glob($app['path.system.images'] . $carouselPath . '{*}.{jpg,png,JPG,PNG}', GLOB_BRACE);
@@ -36,11 +36,11 @@ $teens = $app['controllers_factory'];
 		
 		/*=====  End of Build list of path for carousel  ======*/
 
-	    return $app['twig']->render('sections/teens/index.html.twig', array("carouselImagesPath" => $filesWebPath));
+	    return $app['twig']->render('sections/archery/index.twig', array("carouselImagesPath" => $filesWebPath));
 	})
-	->bind('teens_index');
+	->bind('archery_index');
 
 /*=====  End of Routes  ======*/
 
 /*----------  Enable controller  ----------*/
-$app->mount('teens', $teens);
+$app->mount('archery', $archery);

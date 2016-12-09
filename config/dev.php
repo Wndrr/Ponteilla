@@ -1,18 +1,37 @@
 <?php
+/**
+ * @Author: Hanzu
+ * @Date:   2016-11-28 13:53:09
+ * @Last Modified by:   Wndrr
+ * @Last Modified time: 2016-12-07 16:54:27
+ */
 
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 
-// include the prod configuration
+// include prod configuration - anything located in the prod.php file that is re-defined in this file will be overwritten
 require __DIR__.'/prod.php';
 
-// enable the debug mode
-$app['debug'] = true;
+/*========================================
+=            Define constants            =
+========================================*/
 
-$app->register(new MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/../logs/silex_dev.log',
-));
+	$app['debug'] = true;
 
-$app->register(new WebProfilerServiceProvider(), array(
-    'profiler.cache_dir' => __DIR__.'/../cache/profiler',
-));
+/*=====  End of Define constants  ======*/
+
+
+
+/*=========================================================
+=            Register and initialize providers            =
+=========================================================*/
+
+	$app->register(new MonologServiceProvider(), array(
+	    'monolog.logfile' => __DIR__.'/../logs/silex_dev.log',
+	));
+
+	$app->register(new WebProfilerServiceProvider(), array(
+	    'profiler.cache_dir' => __DIR__.'/../cache/profiler',
+	));
+
+/*=====  End of Register and initialize providers  ======*/

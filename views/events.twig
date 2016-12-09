@@ -1,0 +1,97 @@
+{% extends '/sections/_shared/global.twig' %}
+
+{% block page_title %}Marche nordique{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/nordWalking.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/_shared/navbar.twig' %}
+        {% block navbar_logo %}
+            <!-- Todo: Change the logo / remove if not needed -->
+            <img id="navbar_logo" src="/assets/img/logo.png" alt="Foyer Rural">
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block bodyId %}events{% endblock %}
+
+{% block content %}
+    <h2>
+        Evènements
+    </h2>
+    <table class="table table-hover table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Nom
+                </th>
+                <th>
+                    Lieu
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    16-déc       
+                </td>
+                <td>
+                    Soirée soupes
+                </td>
+                <td>
+                    Foyer Rural
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    22-déc     
+                </td>
+                <td>
+                    Don du sang
+                </td>
+                <td>
+                     Foyer Rural
+                </td>
+            </tr>
+            <tr>
+                <td>
+                      24-déc       
+                </td>
+                <td>
+                    Rifle de noël
+                </td>
+                <td>
+                     Foyer Rural
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    30-déc        
+                </td>
+                <td>
+                    Activité ados  patinoire
+                </td>
+                <td>
+                    Le Barcarés
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    31-déc       
+                </td>
+                <td>
+                    Réveillon
+                </td>
+                <td>
+                    Foyer Rural
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+{% endblock %}

@@ -39,10 +39,23 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li>
-								<a href="/assets/newspapers/november-december-2016.pdf">
-									Bulletin
+							<li class="dropdown">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+									Bulletins <b class="caret"></b>									
 								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="/assets/newspapers/november-december-2016.pdf">
+											Novembre-decembre 2016
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="/assets/newspapers/january-february-march-2017.pdf">
+											Janvier-fevrier-mars 2017
+										</a>
+									</li>
+								 </ul>
 							</li>
 							<li>
 								<a href="{{ path('base_contactInfo') }}">

@@ -1,0 +1,38 @@
+{% extends 'sections/_shared/global.twig' %}
+
+{% block page_title %}Cours de danse{% endblock %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="/assets/css/tableTennis.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/_shared/navbar.twig' %}
+        {% block navbar_logo %}
+			<!--<img id="navbar_logo" src="/assets/img/tableTennis/logo.png" alt="Tennis de table logo">-->
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block bodyId %}tableTennis{% endblock %}
+
+{% block content %}
+	<h1>
+		Cours de danse
+	</h1>
+		<div class="col-md-6 text-center">
+				<div>
+					En partenariat avec Next Level Association <br />
+					à partir de 3 ans <br />
+					Cours d essai gratuit lieu foyer rural <br />
+					Hip hop avec Olivier mardi 17h30 6/9 ans 18h30 10/15 ans <br />
+					Eveil avec tiphaine mercredi 14h éveil 3/5 ans <br />
+					Street jazz avec tiphaine mercredi 15h 6/8 16h 9/13 17h ados <br />
+					Renseignements 0787214285 Facebook Next Level Danse  <br />
+				</div>
+		</div>
+		<div class="col-md-6">
+			<img src="/assets/img/dance/FB_IMG_1535236441854.jpg" />
+		</div>
+
+{% endblock %}

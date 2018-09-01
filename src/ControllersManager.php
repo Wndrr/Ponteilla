@@ -37,6 +37,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 	    require_once('controllers/AjaxController.php');
 	    require_once('controllers/HikingController.php');
 	    require_once('controllers/YogaController.php');
+	    require_once('controllers/DanceController.php');
+	    require_once('controllers/FitnessController.php');
     
     /*=====  End of Sections  ======*/
     

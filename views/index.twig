@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<title>
@@ -21,6 +21,7 @@
 		<!-- textOnPicture -->
 		<script src="/bower_components/TextOnPicture/dist/TextOnPicture.component.js" type="text/javascript" charset="utf-8"></script>
 		
+        {% include '/_shared/Analytics.twig' %}
 	</head>
 	<body id="foyerRural" class="container-fluid">
 		<section id="header" class="row" style="background-image: url('{{backgroundImagePath}}');">
@@ -45,14 +46,40 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="/assets/newspapers/november-december-2016.pdf">
-											Novembre-decembre 2016
+										<a href="/assets/newspapers/avril-mai-juin-2018.pdf">
+											Avril-mail-juin 2018
+										</a>
+									</li>
+									<li>
+										<a href="/assets/newspapers/january-february-march-2018.pdf">
+											Janvier-fevrier-mars 2018
 										</a>
 									</li>
 									<li class="divider"></li>
 									<li>
+										<a href="/assets/newspapers/novembre-decembre-janvier.pdf">
+											Novembre-decembre-janvier 2017
+										</a>
+									</li>
+									<li>
+										<a href="/assets/newspapers/septembre-octobre-novembre.pdf">
+											Septembre-octobre-novembre 2017
+										</a>
+									</li>
+									<li>
+										<a href="/assets/newspapers/mai-juin-juillet-2017.pdf">
+											Mai-juin-juillet 2017
+										</a>
+									</li>
+									<li>
 										<a href="/assets/newspapers/january-february-march-2017.pdf">
 											Janvier-fevrier-mars 2017
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="/assets/newspapers/november-december-2016.pdf">
+											Novembre-decembre 2016
 										</a>
 									</li>
 								 </ul>
@@ -77,34 +104,32 @@
 			</h1>
 			<span style="text-align: right;"></span>
 			<div id="headerText" class="col-lg-12">
-				<div class="row">
-					<div style="background: none;" id="news" class="col-lg-3 col-lg-offset-8">
-						<a href="/assets/img/afficheBafa.jpg" target="_blank">
-							<img src="/assets/img/afficheBafa.jpg" alt="afficheBafa" class="img img-responsive col-sm-6" />
+				<!--<div class="row">
+					<div style="background: none;" id="news" class="col-lg-6 col-lg-offset-4">
+						<a href="/assets/img/FB_IMG_1524162532866.jpg" target="_blank">
+							<img src="/assets/img/FB_IMG_1524162532866.jpg" alt="affiche" class="img img-responsive col-sm-3" />
 						</a>
-						<a href="/assets/img/afficheSejourSportif.jpg" target="_blank">
-							<img src="/assets/img/afficheSejourSportif.jpg" alt="afficheSejourSportif" class="img img-responsive col-sm-6" />
+						<a href="/assets/img/labo pontailla 12 mai.jpg" target="_blank">
+							<img src="/assets/img/labo pontailla 12 mai.jpg" alt="affiche" class="img img-responsive col-sm-3" />
+						</a>
+						<a href="/assets/img/mobil sport.jpg" target="_blank">
+							<img src="/assets/img/mobil sport.jpg" alt="affiche" class="img img-responsive col-sm-3" />
+						</a>
+						<a href="/assets/img/PA20ANS.jpg" target="_blank">
+							<img src="/assets/img/PA20ANS.jpg" alt="affiche" class="img img-responsive col-sm-3" />
 						</a>
 					</div>
-				</div>
+				</div>-->
 				<div class="row">
-					<div id="contact" class="col-lg-8 col-lg-offset-3">
+					<div id="contact" class="col-lg-8 col-lg-offset-3" style="margin-top:10%;">
 						<div id="head">							
 							Le foyer rural de PONTEILLA-NYLS vous accueille :
 							<br />
 							<a href="mailto:foyerruralponteillanyls@gmail.com">foyerruralponteillanyls@gmail.com</a> / 04.68.53.22.93
 						</div>
-						<div id="text">
-							<p>
-								Le foyer rural de Ponteilla-Nyls est né en 1959. Son objectif est l'animation du milieu rural, pour tout public. Il compte plus de 15 sections et 300 adhérents. Ses activités sont très variées&nbsp;:&nbsp;enfance, jeunesse, animations, fêtes, loisirs, santé, formations, sport, citoyenneté, culture, séjours, intergénérationnel. Notre association dite "association d'éducation populaire" permet l'émancipation de l'individu, le partage des connaissances, la transmission de savoirs, participe à l'éducation de l'enfant et de l'ado au travers d'activités où sont toujours privilégiées la convivialité et le plaisir&nbsp;!
-							</p>
-							<p>
-								Point ados, sections sportives, ateliers ... chacun y trouvera son bonheur pour des activités régulières. 
-							</p>
-							<p>
-								Théâtre, concerts, soirées soupes ou tartes, conférences ... chacun prendra plaisir à s'y retrouver pour des soirées ou animations ponctuelles.
-							</p>
-						</div>
+						<!--<div id="text" style="overflow-y: auto; max-height: 300px;">
+							Le président, le bureau, le conseil d'administration du foyer rural de Ponteilla-Nyls vous adressent leurs meilleurs vœux pour une excellente année 2018, que celle-ci voit se réaliser tous vos projets ! 
+						</div>-->
 						
 					</div> 
 				</div>
@@ -122,7 +147,7 @@
 								<h3>
 									Randonnée pédestre
 								</h3>
-								<img src="/assets/img/indexThumbnails/hiking.jpg" alt="Marche nordique image" class="img img-responsive center-block">
+								<img src="/assets/img/indexThumbnails/hiking.jpg" alt="Randonnée" class="img img-responsive center-block">
 							</a>
 						</div>
 						<div class="activity col-sm-6">
@@ -130,7 +155,7 @@
 								<h3>
 									Tir à l'arc
 								</h3>
-								<img src="/assets/img/indexThumbnails/archery.jpg" alt="Marche nordique image" class="img img-responsive center-block">
+								<img src="/assets/img/indexThumbnails/archery.jpg" alt="Tir a l'arc" class="img img-responsive center-block">
 							</a>
 						</div>
 					</div>
@@ -148,7 +173,17 @@
 								<h3>
 									Tennis de table
 								</h3>
-								<img src="/assets/img/indexThumbnails/tableTennis.jpg" alt="Marche nordique image" class="img img-responsive center-block">
+								<img src="/assets/img/indexThumbnails/tableTennis.jpg" alt="Tennis de table" class="img img-responsive center-block">
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="activity col-sm-6 col-sm-offset-6">
+							<a href="{{ path('yoga_index') }}" class="col-lg-12">
+								<h3>
+									Yoga
+								</h3>
+								<img src="/assets/img/indexThumbnails/yoga.jpg" alt="Yoga" class="img img-responsive center-block">
 							</a>
 						</div>
 					</div>
@@ -171,7 +206,7 @@
 								<h3>
 									Relaxation
 								</h3>
-								<img src="/assets/img/indexThumbnails/happyRelax.jpg" alt="Marche nordique image" class="img img-responsive center-block">
+								<img src="/assets/img/indexThumbnails/happyRelax.png" alt="Relaxation" class="img img-responsive center-block">
 							</a>
 						</div>
 					</div>

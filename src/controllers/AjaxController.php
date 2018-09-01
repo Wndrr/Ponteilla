@@ -49,7 +49,7 @@ $ajax = $app['controllers_factory'];
 					Demande d'informations
 				</h1>
 				<h2>
-					Mail automatic - formularie de contact
+					Mail automatique - formulaire de contact
 				</h2>
 				Demande de la part de $lastName $firstName, le $date.
 				<br />

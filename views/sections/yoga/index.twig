@@ -1,0 +1,60 @@
+{% extends '/sections/_shared/global.twig' %}
+
+{% block page_title %}Yoga{% endblock %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="/assets/css/yoga.css">
+{% endblock %}
+
+{% block navbar %}
+    {% embed '/sections/_shared/navbar.twig' %}
+        {% block navbar_logo %}
+        	<!-- Todo: Change the logo / remove if not needed -->
+			<img id="navbar_logo" src="/assets/img/yoga/logo.png" alt="Yoga logo">
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block bodyId %}yoga{% endblock %}
+
+{% block content %}
+	<h1>
+		PONTEILLA YOGA
+	</h1>
+	<div class="row">
+		<div id="picturesContainer" class="col-md-8 col-md-offset-2">
+			{% include '/sections/_shared/carousel.twig' with carouselImagesPath %}
+		</div>
+	</div>
+	<div id="textAndContactContainer">
+		<div class="col-md-6">
+			<div id="textBlock" class="col-md-12">
+				<div>
+					<span style="text-decoration: underline">Lieu</span style="text-decoration: underline"> : ancienne école maternelle, rue des Alouettes<br />
+					<span style="text-decoration: underline">Cours</span style="text-decoration: underline"> : <br />
+					Tous les mardis (sauf fériés et vacances scolaires)<br />
+					Cours 1 : 17h30 - 18h30 (40 €/trimestre)<br />
+					Cours 2 : 18h45 - 20h15 (50 €/trimestre)<br />
+					<span style="text-decoration: underline">Cotisation à régler</span> en 3 chèques à l'odre de Ponteilla-yoga, remis en début d'années et encaissés à chaque trimestre.<br />
+					<span style="text-decoration: underline">Adhésion</span style="text-decoration: underline"> annuelle (assurance) : 13 € à l'ordre du foyer rural de Ponteilla-Nyls<br />
+					1 séance d'essai possible en septembre<br />
+					<span style="text-decoration: underline">Reprise des cours</span style="text-decoration: underline"> le 5 septembre 2017<br />
+					<span style="text-decoration: underline">Renseignements</span style="text-decoration: underline"> : 06.50.45.05.64<br />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div id="contactBlock" class="col-md-12">
+				{% include '/sections/_shared/contactForm.twig' %}
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div id="downloadFile" class="col-md-12">
+			Télécharger la <a href="/assets/ressources/ficheInscription.pdf" target="_blank">fiche individuelle d'inscription</a>
+			<br />
+			<a href="../assets/ressources/questionnaire.pdf" target="_blank">Questionnaire à remplir pour les adhérents ayant déjà fourni un certificat l'année précédente</a>
+		</div>
+	</div>
+
+{% endblock %}

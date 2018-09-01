@@ -24,7 +24,8 @@
             <script src="/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.js" type="text/javascript" charset="utf-8"></script>
 
         {% endblock %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+        {% include '/_shared/Analytics.twig' %}
     </head>
     <body id="{% block bodyId %}base{% endblock %}" class="container-fluid">
 
